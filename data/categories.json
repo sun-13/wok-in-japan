@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "食材类别和子类别字典。ingredients.json 通过 category_id / subcategory_id 引用。",
+  "categories": [
+    {
+      "id": "cat_vegetable",
+      "name_zh": "蔬菜",
+      "name_ja": "野菜",
+      "name_kana": "やさい",
+      "subcategories": [
+        {
+          "id": "subcat_leafy",
+          "name_zh": "叶菜类",
+          "name_ja": "葉物野菜",
+          "name_kana": "はものやさい"
+        },
+        {
+          "id": "subcat_root",
+          "name_zh": "根茎类",
+          "name_ja": "根菜類",
+          "name_kana": "こんさいるい"
+        },
+        {
+          "id": "subcat_gourd",
+          "name_zh": "瓜茄类",
+          "name_ja": "果菜類",
+          "name_kana": "かさいるい"
+        },
+        {
+          "id": "subcat_pepper",
+          "name_zh": "椒类",
+          "name_ja": "ピーマン・唐辛子類",
+          "name_kana": "ピーマン・とうがらしるい"
+        },
+        {
+          "id": "subcat_allium",
+          "name_zh": "葱蒜姜",
+          "name_ja": "ねぎ・にんにく・しょうが類",
+          "name_kana": "ねぎ・にんにく・しょうがるい"
+        },
+        {
+          "id": "subcat_mushroom",
+          "name_zh": "菌菇类",
+          "name_ja": "きのこ類",
+          "name_kana": "きのこるい"
+        },
+        {
+          "id": "subcat_sprout",
+          "name_zh": "豆芽笋类",
+          "name_ja": "もやし・たけのこ類",
+          "name_kana": "もやし・たけのこるい"
+        },
+        {
+          "id": "subcat_pickled",
+          "name_zh": "腌菜类",
+          "name_ja": "漬物類",
+          "name_kana": "つけものるい"
+        }
+      ]
+    },
+    {
+      "id": "cat_meat",
+      "name_zh": "肉类",
+      "name_ja": "肉類",
+      "name_kana": "にくるい",
+      "subcategories": [
+        {
+          "id": "subcat_pork",
+          "name_zh": "猪肉",
+          "name_ja": "豚肉",
+          "name_kana": "ぶたにく"
+        },
+        {
+          "id": "subcat_beef",
+          "name_zh": "牛肉",
+          "name_ja": "牛肉",
+          "name_kana": "ぎゅうにく"
+        },
+        {
+          "id": "subcat_chicken",
+          "name_zh": "鸡肉",
+          "name_ja": "鶏肉",
+          "name_kana": "とりにく"
+        },
+        {
+          "id": "subcat_lamb",
+          "name_zh": "羊肉",
+          "name_ja": "ラム肉・羊肉",
+          "name_kana": "ラムにく・ようにく"
+        },
+        {
+          "id": "subcat_processed_meat",
+          "name_zh": "加工肉",
+          "name_ja": "加工肉",
+          "name_kana": "かこうにく"
+        },
+        {
+          "id": "subcat_duck",
+          "name_zh": "鸭肉",
+          "name_ja": "鴨肉・あひる肉",
+          "name_kana": "かもにく・あひるにく"
+        }
+      ]
+    },
+    {
+      "id": "cat_seafood",
+      "name_zh": "海鲜水产",
+      "name_ja": "魚介類",
+      "name_kana": "ぎょかいるい",
+      "subcategories": [
+        {
+          "id": "subcat_fish",
+          "name_zh": "鱼类",
+          "name_ja": "魚類",
+          "name_kana": "ぎょるい"
+        },
+        {
+          "id": "subcat_shellfish",
+          "name_zh": "贝类",
+          "name_ja": "貝類",
+          "name_kana": "かいるい"
+        },
+        {
+          "id": "subcat_cephalopod",
+          "name_zh": "头足类",
+          "name_ja": "頭足類",
+          "name_kana": "とうそくるい"
+        },
+        {
+          "id": "subcat_crustacean",
+          "name_zh": "虾蟹",
+          "name_ja": "エビ・カニ類",
+          "name_kana": "エビ・カニるい"
+        }
+      ]
+    },
+    {
+      "id": "cat_egg_tofu",
+      "name_zh": "蛋豆制品",
+      "name_ja": "卵・豆腐類",
+      "name_kana": "たまご・とうふるい",
+      "subcategories": [
+        {
+          "id": "subcat_egg",
+          "name_zh": "蛋类",
+          "name_ja": "卵類",
+          "name_kana": "たまごるい"
+        },
+        {
+          "id": "subcat_tofu",
+          "name_zh": "豆腐",
+          "name_ja": "豆腐類",
+          "name_kana": "とうふるい"
+        }
+      ]
+    },
+    {
+      "id": "cat_fruit",
+      "name_zh": "水果",
+      "name_ja": "果物",
+      "name_kana": "くだもの",
+      "subcategories": [
+        {
+          "id": "subcat_fruit",
+          "name_zh": "水果",
+          "name_ja": "果物",
+          "name_kana": "くだもの"
+        }
+      ]
+    },
+    {
+      "id": "cat_staple",
+      "name_zh": "主食米面",
+      "name_ja": "主食・米麺類",
+      "name_kana": "しゅしょく・こめめんるい",
+      "subcategories": [
+        {
+          "id": "subcat_rice",
+          "name_zh": "米类",
+          "name_ja": "米類",
+          "name_kana": "こめるい"
+        },
+        {
+          "id": "subcat_flour",
+          "name_zh": "面粉类",
+          "name_ja": "粉類",
+          "name_kana": "こなるい"
+        },
+        {
+          "id": "subcat_starch",
+          "name_zh": "淀粉类",
+          "name_ja": "デンプン類",
+          "name_kana": "でんぷんるい"
+        },
+        {
+          "id": "subcat_noodle",
+          "name_zh": "面条类",
+          "name_ja": "麺類",
+          "name_kana": "めんるい"
+        },
+        {
+          "id": "subcat_wrapper",
+          "name_zh": "面皮类",
+          "name_ja": "皮類",
+          "name_kana": "かわるい"
+        }
+      ]
+    },
+    {
+      "id": "cat_seasoning",
+      "name_zh": "调料",
+      "name_ja": "調味料",
+      "name_kana": "ちょうみりょう",
+      "subcategories": [
+        {
+          "id": "subcat_soy_sauce",
+          "name_zh": "酱油类",
+          "name_ja": "醤油類",
+          "name_kana": "しょうゆるい"
+        },
+        {
+          "id": "subcat_sauce",
+          "name_zh": "酱料类",
+          "name_ja": "ソース・醤類",
+          "name_kana": "ソース・ジャンるい"
+        },
+        {
+          "id": "subcat_vinegar",
+          "name_zh": "醋类",
+          "name_ja": "酢類",
+          "name_kana": "するい"
+        },
+        {
+          "id": "subcat_cooking_wine",
+          "name_zh": "料酒类",
+          "name_ja": "料理酒類",
+          "name_kana": "りょうりしゅるい"
+        },
+        {
+          "id": "subcat_oil",
+          "name_zh": "油脂类",
+          "name_ja": "油脂類",
+          "name_kana": "ゆしるい"
+        },
+        {
+          "id": "subcat_spice",
+          "name_zh": "香辛料",
+          "name_ja": "香辛料",
+          "name_kana": "こうしんりょう"
+        },
+        {
+          "id": "subcat_basic_seasoning",
+          "name_zh": "基础调味",
+          "name_ja": "基本調味料",
+          "name_kana": "きほんちょうみりょう"
+        }
+      ]
+    },
+    {
+      "id": "cat_dry",
+      "name_zh": "干货",
+      "name_ja": "乾物",
+      "name_kana": "かんぶつ",
+      "subcategories": [
+        {
+          "id": "subcat_dry_mushroom",
+          "name_zh": "菌菇类干货",
+          "name_ja": "乾燥きのこ類",
+          "name_kana": "かんそうきのこるい"
+        },
+        {
+          "id": "subcat_dry_vegetable",
+          "name_zh": "蔬菜干货",
+          "name_ja": "乾燥野菜",
+          "name_kana": "かんそうやさい"
+        },
+        {
+          "id": "subcat_dry_soy",
+          "name_zh": "豆制品干货",
+          "name_ja": "乾燥豆製品",
+          "name_kana": "かんそうまめせいひん"
+        },
+        {
+          "id": "subcat_dry_noodle",
+          "name_zh": "粉丝类",
+          "name_ja": "春雨・粉条類",
+          "name_kana": "はるさめ・ふんじょうるい"
+        },
+        {
+          "id": "subcat_dry_seafood",
+          "name_zh": "海产干货",
+          "name_ja": "海産乾物",
+          "name_kana": "かいさんかんぶつ"
+        },
+        {
+          "id": "subcat_dry_fruit",
+          "name_zh": "干果类",
+          "name_ja": "ドライフルーツ",
+          "name_kana": "ドライフルーツ"
+        }
+      ]
+    }
+  ]
+}

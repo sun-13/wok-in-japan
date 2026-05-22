@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "菜系字典。dishes.json 通过 cuisine_id 引用。",
+  "cuisines": [
+    {
+      "id": "cuisine_chuan",
+      "name_zh": "川菜",
+      "name_ja": "四川料理",
+      "name_kana": "しせんりょうり",
+      "region": "四川 / 重庆",
+      "characteristics": "麻辣鲜香、味型丰富（鱼香/麻辣/糖醋等23种味型）",
+      "famous_dishes": [
+        "麻婆豆腐",
+        "回锅肉",
+        "鱼香肉丝",
+        "宫保鸡丁",
+        "水煮鱼"
+      ]
+    },
+    {
+      "id": "cuisine_lu",
+      "name_zh": "鲁菜",
+      "name_ja": "山東料理",
+      "name_kana": "さんとうりょうり",
+      "region": "山东",
+      "characteristics": "咸鲜为主、葱香突出、火候考究、拔丝糖艺",
+      "famous_dishes": [
+        "葱爆牛肉",
+        "糖醋鲤鱼",
+        "九转大肠",
+        "拔丝苹果"
+      ]
+    },
+    {
+      "id": "cuisine_yue",
+      "name_zh": "粤菜",
+      "name_ja": "広東料理",
+      "name_kana": "かんとんりょうり",
+      "region": "广东（广州 / 潮汕 / 客家）",
+      "characteristics": "清淡鲜美、注重原味、烹饪精细、海鲜见长",
+      "famous_dishes": [
+        "清蒸鱼",
+        "白切鸡",
+        "干炒牛河",
+        "蒜蓉粉丝扇贝",
+        "咕咾肉"
+      ]
+    },
+    {
+      "id": "cuisine_su",
+      "name_zh": "苏菜",
+      "name_ja": "江蘇料理",
+      "name_kana": "こうそりょうり",
+      "region": "江苏",
+      "characteristics": "讲究刀工、清鲜平和、咸甜适中、本帮红烧",
+      "famous_dishes": [
+        "红烧肉",
+        "松鼠桂鱼",
+        "狮子头",
+        "莲藕排骨汤"
+      ]
+    },
+    {
+      "id": "cuisine_zhe",
+      "name_zh": "浙菜",
+      "name_ja": "浙江料理",
+      "name_kana": "せっこうりょうり",
+      "region": "浙江",
+      "characteristics": "清淡爽口、注重本味、糖醋为长",
+      "famous_dishes": [
+        "糖醋排骨",
+        "西湖醋鱼",
+        "东坡肉",
+        "龙井虾仁"
+      ]
+    },
+    {
+      "id": "cuisine_min",
+      "name_zh": "闽菜",
+      "name_ja": "福建料理",
+      "name_kana": "ふっけんりょうり",
+      "region": "福建",
+      "characteristics": "汤菜见长、清鲜淡爽、红糟独特",
+      "famous_dishes": [
+        "佛跳墙",
+        "荔枝肉",
+        "醉排骨"
+      ]
+    },
+    {
+      "id": "cuisine_xiang",
+      "name_zh": "湘菜",
+      "name_ja": "湖南料理",
+      "name_kana": "こなんりょうり",
+      "region": "湖南",
+      "characteristics": "重油辣、酸辣咸香、烟熏腊味",
+      "famous_dishes": [
+        "剁椒鱼头",
+        "毛氏红烧肉",
+        "湘味小炒肉"
+      ]
+    },
+    {
+      "id": "cuisine_hui",
+      "name_zh": "徽菜",
+      "name_ja": "安徽料理",
+      "name_kana": "あんきりょうり",
+      "region": "安徽",
+      "characteristics": "重油重色重火功、擅做山珍",
+      "famous_dishes": [
+        "臭鳜鱼",
+        "毛豆腐",
+        "李鸿章杂烩"
+      ]
+    },
+    {
+      "id": "cuisine_dongbei",
+      "name_zh": "东北菜",
+      "name_ja": "東北料理",
+      "name_kana": "とうほくりょうり",
+      "region": "东北三省（黑龙江 / 吉林 / 辽宁）",
+      "characteristics": "分量大、咸鲜浓郁、炖菜见长、酱料丰富",
+      "famous_dishes": [
+        "地三鲜",
+        "锅包肉",
+        "酸菜炖白肉",
+        "小鸡炖蘑菇",
+        "醋溜土豆丝"
+      ]
+    },
+    {
+      "id": "cuisine_xibei",
+      "name_zh": "西北菜",
+      "name_ja": "西北料理",
+      "name_kana": "せいほくりょうり",
+      "region": "新疆 / 陕西 / 甘肃",
+      "characteristics": "羊肉烤为主、孜然辣椒重、面食发达",
+      "famous_dishes": [
+        "孜然羊肉",
+        "羊肉串",
+        "羊肉泡馍",
+        "大盘鸡",
+        "拉条子"
+      ]
+    },
+    {
+      "id": "cuisine_hu",
+      "name_zh": "沪菜",
+      "name_ja": "上海料理",
+      "name_kana": "シャンハイりょうり",
+      "region": "上海",
+      "characteristics": "浓油赤酱、咸甜适中、本帮风味",
+      "famous_dishes": [
+        "红烧肉",
+        "葱油拌面",
+        "小笼包",
+        "白切鸡"
+      ]
+    },
+    {
+      "id": "cuisine_jing",
+      "name_zh": "京菜",
+      "name_ja": "北京料理",
+      "name_kana": "ぺきんりょうり",
+      "region": "北京",
+      "characteristics": "宫廷与民间结合、葱酱风味、烤涮见长",
+      "famous_dishes": [
+        "北京烤鸭",
+        "京酱肉丝",
+        "炸酱面",
+        "涮羊肉"
+      ]
+    },
+    {
+      "id": "cuisine_jiachang",
+      "name_zh": "家常菜",
+      "name_ja": "家庭料理",
+      "name_kana": "かていりょうり",
+      "region": "通用",
+      "characteristics": "跨地域的日常菜式、做法简便、口味多样",
+      "famous_dishes": [
+        "西红柿炒鸡蛋",
+        "土豆烧肉",
+        "蛋炒饭",
+        "拍黄瓜"
+      ]
+    }
+  ]
+}

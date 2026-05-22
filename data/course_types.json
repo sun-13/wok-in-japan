@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "菜品的就餐分类。dishes.json 通过 course_type_id 引用。",
+  "course_types": [
+    {
+      "id": "course_main",
+      "name_zh": "主菜",
+      "name_ja": "主菜",
+      "name_kana": "しゅさい",
+      "description": "餐桌上的主要菜肴（炒/炖/烧/煎/蒸的荤菜素菜）",
+      "icon_hint": "🍲"
+    },
+    {
+      "id": "course_cold",
+      "name_zh": "凉菜",
+      "name_ja": "前菜・冷菜",
+      "name_kana": "ぜんさい・れいさい",
+      "description": "凉拌菜，开胃用，常作前菜",
+      "icon_hint": "🥗"
+    },
+    {
+      "id": "course_soup",
+      "name_zh": "汤",
+      "name_ja": "スープ",
+      "name_kana": "スープ",
+      "description": "汤类菜品",
+      "icon_hint": "🍵"
+    },
+    {
+      "id": "course_staple",
+      "name_zh": "主食",
+      "name_ja": "主食",
+      "name_kana": "しゅしょく",
+      "description": "米饭、面条、粥等碳水主食",
+      "icon_hint": "🍜"
+    },
+    {
+      "id": "course_pastry",
+      "name_zh": "面点",
+      "name_ja": "点心・粉物",
+      "name_kana": "てんしん・こなもの",
+      "description": "包子、饺子、馒头、饼、春卷等面食制品",
+      "icon_hint": "🥟"
+    },
+    {
+      "id": "course_dessert",
+      "name_zh": "甜品",
+      "name_ja": "デザート・甜品",
+      "name_kana": "デザート・てんぴん",
+      "description": "甜汤、糖水、拔丝等甜品",
+      "icon_hint": "🍮"
+    }
+  ]
+}

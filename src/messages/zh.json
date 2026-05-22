@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Wok in Japan",
+    "tagline": "在日本能买到的食材 · 你会做的中餐",
+    "description": "私人中餐菜单数据库 + 每日选菜小工具"
+  },
+  "nav": {
+    "home": "首页",
+    "dishes": "菜单",
+    "ingredients": "食材",
+    "about": "关于"
+  },
+  "home": {
+    "hero_title": "今天吃什么？",
+    "hero_sub": "在日本，用真能买到的食材，做你会做的中餐。",
+    "roll_button": "随机来一道",
+    "roll_again": "再来一道",
+    "filter_label": "限定餐型",
+    "filter_all": "全部",
+    "browse_all": "查看全部菜单",
+    "stats": "菜品 {dishes} 道 · 食材 {ingredients} 种 · 菜系 {cuisines} 种"
+  },
+  "dishes": {
+    "title": "菜单",
+    "sub": "按菜系 / 餐型 / 难度 / 时间筛选",
+    "search_placeholder": "搜索菜名（中 / 日）...",
+    "filter_cuisine": "菜系",
+    "filter_course": "餐型",
+    "filter_difficulty": "难度",
+    "filter_time": "用时",
+    "filter_all": "全部",
+    "result_count": "共 {count} 道菜",
+    "empty": "没找到符合条件的菜，换个筛选试试",
+    "clear_filters": "清空筛选"
+  },
+  "difficulty": {
+    "label": "难度",
+    "1": "极简",
+    "2": "简单",
+    "3": "中等",
+    "4": "较难",
+    "5": "复杂"
+  },
+  "time": {
+    "minutes": "{n} 分钟",
+    "under_15": "15 分钟内",
+    "under_30": "30 分钟内",
+    "under_60": "1 小时内",
+    "over_60": "1 小时以上"
+  },
+  "dish_detail": {
+    "back": "← 返回菜单",
+    "ingredients_title": "食材",
+    "steps_title": "做法",
+    "tips_title": "小贴士",
+    "servings": "{n} 人份",
+    "cook_time": "约 {n} 分钟",
+    "cooking_method": "做法",
+    "cuisine": "菜系",
+    "course": "餐型",
+    "time_label": "用时",
+    "servings_label": "份量",
+    "optional_tag": "可省",
+    "substitute_label": "可替代",
+    "role_main": "主料",
+    "role_sub": "配料",
+    "role_aromatic": "香料",
+    "role_seasoning": "调味",
+    "ingredient": "食材",
+    "amount": "用量",
+    "preparation": "处理",
+    "no_tips": "无"
+  },
+  "ingredient_detail": {
+    "back": "← 返回食材",
+    "category": "类别",
+    "season": "季节",
+    "price_range": "价格",
+    "purchase_locations": "购买场所",
+    "substitutes": "替代品",
+    "notes": "备注",
+    "used_in": "在这些菜里用到"
+  },
+  "ingredients_list": {
+    "title": "食材",
+    "sub": "在日本能买到的中餐食材",
+    "search_placeholder": "搜索食材...",
+    "filter_category": "类别",
+    "filter_all": "全部"
+  },
+  "common": {
+    "loading": "加载中...",
+    "not_found": "没找到",
+    "back_home": "回到首页"
+  }
+}
