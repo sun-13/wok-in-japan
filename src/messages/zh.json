@@ -86,7 +86,9 @@
     "sub": "在日本能买到的中餐食材",
     "search_placeholder": "搜索食材...",
     "filter_category": "类别",
-    "filter_all": "全部"
+    "filter_all": "全部",
+    "result_count": "共 {count} 种食材",
+    "empty": "没找到符合条件的食材，换个筛选试试"
   },
   "common": {
     "loading": "加载中...",

@@ -71,7 +71,7 @@ export function IngredientsBrowser({ ingredients, categories }: IngredientsBrows
       </div>
 
       <p className="text-muted-foreground text-sm">
-        {t("dishes.result_count", { count: filtered.length })}
+        {t("ingredients_list.result_count", { count: filtered.length })}
       </p>
 
       {groups.length === 0 ? (
@@ -79,7 +79,7 @@ export function IngredientsBrowser({ ingredients, categories }: IngredientsBrows
           <div className="mb-2 text-3xl" aria-hidden>
             🤔
           </div>
-          <p>{t("dishes.empty")}</p>
+          <p>{t("ingredients_list.empty")}</p>
         </div>
       ) : (
         <div className="space-y-8">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { DishCard } from "@/components/dish-card";
 import { Badge } from "@/components/ui/badge";
@@ -19,26 +19,48 @@ export function RandomPicker({ dishes, courseTypes }: RandomPickerProps) {
   const [courseId, setCourseId] = useState<string>(ALL_COURSES);
   const [pickedId, setPickedId] = useState<string | null>(null);
   const [spinning, setSpinning] = useState(false);
+  // spin 中の setInterval を ref に保持し、アンマウントや再 roll 時にクリーンアップ
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const pool = useMemo(
     () => (courseId === ALL_COURSES ? dishes : dishes.filter((d) => d.course.id === courseId)),
     [dishes, courseId],
   );
 
-  const picked = pickedId ? dishes.find((d) => d.id === pickedId) : null;
+  // pool（= 現在の絞り込み結果）から派生させることで、
+  // フィルタを変えた瞬間にプールから外れた料理は自動的に消える
+  const picked = pickedId ? (pool.find((d) => d.id === pickedId) ?? null) : null;
+
+  // アンマウント時にスピン用の interval を確実に止める
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, []);
 
   function roll() {
     if (pool.length === 0) return;
+    // 連打や残存タイマーに備えて、既存の interval を必ず止めてから始める
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
     setSpinning(true);
     // 一瞬チラチラさせて「ガチャ感」を演出
     let ticks = 0;
     const maxTicks = 8;
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       ticks += 1;
       const next = pool[Math.floor(Math.random() * pool.length)];
       setPickedId(next.id);
       if (ticks >= maxTicks) {
-        clearInterval(interval);
+        if (intervalRef.current !== null) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
         setSpinning(false);
       }
     }, 60);
