@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ModeToggle } from "@/components/mode-toggle";
 import { t } from "@/lib/i18n";
 
 const navItems = [
@@ -28,6 +29,7 @@ export function SiteHeader() {
               {t(item.labelKey)}
             </Link>
           ))}
+          <ModeToggle />
         </nav>
       </div>
     </header>
