@@ -94,5 +94,11 @@
     "loading": "加载中...",
     "not_found": "没找到",
     "back_home": "回到首页"
+  },
+  "theme": {
+    "switch": "切换主题",
+    "light": "亮色",
+    "dark": "暗色",
+    "system": "跟随系统"
   }
 }
