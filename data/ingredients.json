@@ -1,0 +1,3922 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "在日本能买到的、适合做中餐的食材数据库。为后续菜单数据库和彩蛋网页 APP 提供基础数据。",
+  "metadata": {
+    "references": {
+      "locations": "./locations.json",
+      "categories": "./categories.json",
+      "tags": "./tags.json"
+    },
+    "description": "食材主表。category_id / subcategory_id / purchase_location_ids / tag_ids 均为外键，定义见 references 指向的文件。"
+  },
+  "ingredients": [
+    {
+      "id": "veg_001",
+      "name_zh": "白菜",
+      "name_ja": "白菜",
+      "name_kana": "はくさい",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/颗",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "做酸辣白菜、白菜炖粉条、饺子馅、火锅。日本白菜个头大、水分多，包饺子需挤水",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_002",
+      "name_zh": "小白菜/青梗菜",
+      "name_ja": "青梗菜",
+      "name_kana": "チンゲンサイ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "小松菜"
+      ],
+      "notes": "蒜蓉清炒、上汤、烫面条配菜。日本超市最易买到的中式叶菜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_003",
+      "name_zh": "菠菜",
+      "name_ja": "ほうれん草",
+      "name_kana": "ほうれんそう",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/把",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、上汤、做包子馅。日本菠菜偏小，焯水去涩",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_004",
+      "name_zh": "小松菜",
+      "name_ja": "小松菜",
+      "name_kana": "こまつな",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-180円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "青梗菜",
+        "油菜"
+      ],
+      "notes": "日本特色叶菜，可代替油菜和青梗菜。蒜蓉清炒、煮汤",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_substitutable"
+      ]
+    },
+    {
+      "id": "veg_005",
+      "name_zh": "茼蒿",
+      "name_ja": "春菊",
+      "name_kana": "しゅんぎく",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "150-250円/把",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月",
+        "3月"
+      ],
+      "substitutes": [],
+      "notes": "火锅、清炒、凉拌。日本火锅常用，全年偶有，冬季最好",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_006",
+      "name_zh": "生菜",
+      "name_ja": "レタス",
+      "name_kana": "レタス",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/颗",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "生食、包烤肉、清炒。日本玉米生菜（玉レタス）多见，叶生菜（リーフレタス）也有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_007",
+      "name_zh": "卷心菜/包菜",
+      "name_ja": "キャベツ",
+      "name_kana": "キャベツ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-350円/颗",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "醋溜包菜、手撕包菜、回锅肉。日本卷心菜偏松软甜，是百搭蔬菜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_008",
+      "name_zh": "紫甘蓝",
+      "name_ja": "紫キャベツ",
+      "name_kana": "むらさきキャベツ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "200-400円/半颗",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、配色用。颜色好看适合做沙拉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_009",
+      "name_zh": "韭菜",
+      "name_ja": "ニラ",
+      "name_kana": "ニラ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "100-200円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "饺子馅、韭菜炒蛋、韭菜盒子。日本韭菜略短，叶子偏厚",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_010",
+      "name_zh": "香菜",
+      "name_ja": "パクチー / 香菜",
+      "name_kana": "パクチー / こうみ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "150-300円/小束",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、提味、汤底。日本超市的パクチー量很少，中华店量大便宜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "veg_011",
+      "name_zh": "空心菜",
+      "name_ja": "空芯菜 / エンサイ",
+      "name_kana": "くうしんさい / エンサイ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "300-500円/把",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [],
+      "notes": "蒜蓉炒、腐乳炒。夏季限定，普通超市偶尔有，中华店稳定",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_seasonal",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "veg_012",
+      "name_zh": "土豆",
+      "name_ja": "じゃがいも",
+      "name_kana": "じゃがいも",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/3-4个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "酸辣土豆丝、地三鲜、土豆炖牛肉。日本男爵芋粉，五月皇后脆，做土豆丝用五月皇后",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_013",
+      "name_zh": "红薯",
+      "name_ja": "さつまいも",
+      "name_kana": "さつまいも",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/根",
+      "season": [
+        "9月",
+        "10月",
+        "11月",
+        "12月"
+      ],
+      "substitutes": [],
+      "notes": "拔丝红薯、烤红薯、红薯粥。日本红薯偏甜，蒸烤为主",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_014",
+      "name_zh": "山药",
+      "name_ja": "長芋 / 山芋",
+      "name_kana": "ながいも / やまいも",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "300-600円/段",
+      "season": [
+        "10月",
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "蓝莓山药、山药排骨汤。日本长芋脆嫩水分多，蒸排骨汤稍逊于国产铁棍山药",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_015",
+      "name_zh": "白萝卜",
+      "name_ja": "大根",
+      "name_kana": "だいこん",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/根",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "萝卜炖牛腩、萝卜丝饼、腌萝卜。日本大根水分足、辣味淡",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_016",
+      "name_zh": "胡萝卜",
+      "name_ja": "人参",
+      "name_kana": "にんじん",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/3根",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "配菜、炖菜、饺子馅。全年常备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_017",
+      "name_zh": "莲藕",
+      "name_ja": "蓮根",
+      "name_kana": "れんこん",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "300-500円/段",
+      "season": [
+        "10月",
+        "11月",
+        "12月",
+        "1月"
+      ],
+      "substitutes": [],
+      "notes": "凉拌藕片、糖醋藕、藕夹、莲藕排骨汤。日本莲藕偏短粗",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_018",
+      "name_zh": "牛蒡",
+      "name_ja": "ごぼう",
+      "name_kana": "ごぼう",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/根",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月",
+        "3月"
+      ],
+      "substitutes": [],
+      "notes": "炖排骨、煲汤、凉拌牛蒡丝。日本料理常用，中餐可炖煮",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_019",
+      "name_zh": "芋头",
+      "name_ja": "里芋",
+      "name_kana": "さといも",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_root",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "9月",
+        "10月",
+        "11月",
+        "12月"
+      ],
+      "substitutes": [],
+      "notes": "芋头蒸排骨、香芋扣肉。日本里芋偏小、黏度高",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_020",
+      "name_zh": "西红柿",
+      "name_ja": "トマト",
+      "name_kana": "トマト",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/3-4个",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [
+        "罐头番茄"
+      ],
+      "notes": "西红柿炒蛋、西红柿打卤面、罗宋汤。日本西红柿酸度低、偏甜，炒蛋可加点番茄酱补酸",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_021",
+      "name_zh": "茄子",
+      "name_ja": "茄子",
+      "name_kana": "なす",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/3-4个",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [],
+      "notes": "鱼香茄子、地三鲜、肉末茄子。日本茄子细长水分多，炒前过油更香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_022",
+      "name_zh": "黄瓜",
+      "name_ja": "胡瓜 / きゅうり",
+      "name_kana": "きゅうり",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/3根",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "拍黄瓜、凉拌、炒蛋。日本黄瓜偏细长，凉拌前可拍碎入味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_023",
+      "name_zh": "苦瓜",
+      "name_ja": "ゴーヤ / 苦瓜",
+      "name_kana": "ゴーヤ / にがうり",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "200-400円/根",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [],
+      "notes": "苦瓜炒蛋、苦瓜炒牛肉、凉拌。冲绳产为主，夏季常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_024",
+      "name_zh": "冬瓜",
+      "name_ja": "冬瓜 / トウガン",
+      "name_kana": "とうがん",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/块",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [],
+      "notes": "冬瓜排骨汤、虾米冬瓜。日本冬瓜按块卖，夏季常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "veg_025",
+      "name_zh": "南瓜",
+      "name_ja": "かぼちゃ",
+      "name_kana": "かぼちゃ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-500円/1/4个",
+      "season": [
+        "9月",
+        "10月",
+        "11月"
+      ],
+      "substitutes": [],
+      "notes": "南瓜饼、咸蛋黄南瓜、南瓜粥。日本南瓜偏甜面，皮硬",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_026",
+      "name_zh": "西葫芦",
+      "name_ja": "ズッキーニ",
+      "name_kana": "ズッキーニ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_gourd",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "200-300円/根",
+      "season": [
+        "6月",
+        "7月",
+        "8月"
+      ],
+      "substitutes": [
+        "黄瓜"
+      ],
+      "notes": "西葫芦炒蛋、西葫芦肉饼。和国内西葫芦稍有差异，但可替代",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_027",
+      "name_zh": "青椒",
+      "name_ja": "ピーマン",
+      "name_kana": "ピーマン",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_pepper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/4-5个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "青椒肉丝、虎皮青椒、回锅肉。日本ピーマン偏苦，可选大个偏甜的バナナピーマン或万愿寺",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_028",
+      "name_zh": "彩椒",
+      "name_ja": "パプリカ",
+      "name_kana": "パプリカ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_pepper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "配菜、炒肉、配色。颜色好看，多为荷兰韩国进口",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_029",
+      "name_zh": "干辣椒/鹰爪椒",
+      "name_ja": "鷹の爪 / 唐辛子",
+      "name_kana": "たかのつめ / とうがらし",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_pepper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "朝天椒（中华店）"
+      ],
+      "notes": "宫保鸡丁、麻辣香锅、爆香用。普通超市鹰爪椒辣度低，要够辣去中华店买朝天椒/二荆条",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_030",
+      "name_zh": "大葱",
+      "name_ja": "長ねぎ / 白ねぎ",
+      "name_kana": "ながねぎ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/根",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "葱爆、葱油、煎饼。日本长葱白部分长，葱绿短，做葱花要多买几根",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_031",
+      "name_zh": "细香葱/小葱",
+      "name_ja": "万能ねぎ / 細ねぎ / 青ねぎ",
+      "name_kana": "ばんのうねぎ / ほそねぎ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "做葱花、撒面、点缀。需要葱花的菜首选",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_032",
+      "name_zh": "洋葱",
+      "name_ja": "玉ねぎ",
+      "name_kana": "たまねぎ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/3-4个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "洋葱炒蛋、洋葱炒牛肉、咖喱。日本洋葱辛味中等，紫洋葱也常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_033",
+      "name_zh": "大蒜",
+      "name_ja": "ニンニク",
+      "name_kana": "ニンニク",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "150-400円/头",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "蒜泥管装",
+        "干蒜片"
+      ],
+      "notes": "中餐必备。日本国产青森蒜贵，中华店或业务超市的中国进口蒜便宜量大",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_034",
+      "name_zh": "生姜",
+      "name_ja": "生姜 / しょうが",
+      "name_kana": "しょうが",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "150-300円/块",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "姜泥管装"
+      ],
+      "notes": "中餐必备。日本嫩姜（新生姜）夏季限定，可做泡姜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_035",
+      "name_zh": "香菇",
+      "name_ja": "椎茸 / しいたけ",
+      "name_kana": "しいたけ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "干香菇"
+      ],
+      "notes": "香菇油菜、香菇炖鸡、香菇肉酱。日本鲜香菇大个肉厚",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_036",
+      "name_zh": "金针菇",
+      "name_ja": "えのきたけ / えのき",
+      "name_kana": "えのきたけ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "80-150円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "金针菇肥牛、凉拌、火锅。日本是产地，便宜量大",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_037",
+      "name_zh": "杏鲍菇",
+      "name_ja": "エリンギ",
+      "name_kana": "エリンギ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-250円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "椒盐杏鲍菇、孜然杏鲍菇。肉质厚实，可替代肉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_038",
+      "name_zh": "蟹味菇",
+      "name_ja": "ぶなしめじ",
+      "name_kana": "ぶなしめじ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-180円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炒菜、炖汤、烩饭。日本特色，做中餐当配菜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_039",
+      "name_zh": "平菇",
+      "name_ja": "ひらたけ",
+      "name_kana": "ひらたけ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "杏鲍菇"
+      ],
+      "notes": "手撕平菇、炒肉。日本ひらたけ不如国内常见，可用エリンギ替代",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_substitutable"
+      ]
+    },
+    {
+      "id": "veg_040",
+      "name_zh": "绿豆芽",
+      "name_ja": "もやし / 緑豆もやし",
+      "name_kana": "もやし",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_sprout",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "30-50円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "醋溜豆芽、豆芽炒韭菜。日本最便宜的蔬菜之一",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_041",
+      "name_zh": "黄豆芽",
+      "name_ja": "大豆もやし",
+      "name_kana": "だいずもやし",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_sprout",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_korean"
+      ],
+      "price_range": "50-100円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "黄豆芽汤、韩式凉拌。比绿豆芽香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_042",
+      "name_zh": "豆苗",
+      "name_ja": "豆苗",
+      "name_kana": "とうみょう",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_sprout",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-150円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "蒜蓉炒豆苗、上汤豆苗。可剪掉后水培再长一茬",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_043",
+      "name_zh": "竹笋（水煮）",
+      "name_ja": "水煮たけのこ",
+      "name_kana": "みずにたけのこ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_sprout",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "200-500円/袋",
+      "season": [
+        "全年（鲜笋3-5月）"
+      ],
+      "substitutes": [],
+      "notes": "油焖笋、笋丝肉丝、火锅。鲜笋春季限定，水煮笋全年常备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_044",
+      "name_zh": "蒜苗/青蒜",
+      "name_ja": "ニンニクの芽 / 葉ニンニク",
+      "name_kana": "ニンニクのめ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu"
+      ],
+      "price_range": "300-500円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "大葱+蒜"
+      ],
+      "notes": "回锅肉、蒜苗炒腊肉必备。普通超市少见，中华店或业务超市冷冻有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store",
+        "tag_common"
+      ]
+    },
+    {
+      "id": "meat_001",
+      "name_zh": "五花肉",
+      "name_ja": "豚バラ肉",
+      "name_kana": "ぶたバラにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_pork",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "200-400円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "回锅肉、红烧肉、梅菜扣肉。日本五花有块（ブロック）和切片，红烧选块状",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "meat_002",
+      "name_zh": "猪里脊",
+      "name_ja": "豚ロース / 豚ヒレ",
+      "name_kana": "ぶたロース / ぶたヒレ",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_pork",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "180-350円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "糖醋里脊、京酱肉丝、滑肉。豚ロース是大里脊，豚ヒレ是小里脊更嫩",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_003",
+      "name_zh": "猪肩肉",
+      "name_ja": "豚肩ロース",
+      "name_kana": "ぶたかたロース",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_pork",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炒肉丝、回锅肉、肉末。比里脊多脂肪，炒制更香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_004",
+      "name_zh": "猪肉末",
+      "name_ja": "豚ひき肉",
+      "name_kana": "ぶたひきにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_pork",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-250円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "麻婆豆腐、肉末茄子、饺子馅。日本超市的合いびき肉是猪牛混合",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "meat_005",
+      "name_zh": "猪排骨",
+      "name_ja": "スペアリブ / 豚バラ軟骨",
+      "name_kana": "スペアリブ",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_pork",
+      "purchase_location_ids": [
+        "loc_gyomu",
+        "loc_costco",
+        "loc_chinese"
+      ],
+      "price_range": "180-400円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "糖醋排骨、莲藕排骨汤、椒盐排骨。普通超市少见，业务超市冷冻或中华店预定",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common"
+      ]
+    },
+    {
+      "id": "meat_006",
+      "name_zh": "牛肉片",
+      "name_ja": "牛肉切り落とし / 牛薄切り",
+      "name_kana": "ぎゅうにくきりおとし",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_beef",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "300-600円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "黑椒牛柳、孜然牛肉、葱爆牛肉。日本牛切薄片直接用，澳洲牛便宜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_007",
+      "name_zh": "牛肉末",
+      "name_ja": "牛ひき肉",
+      "name_kana": "ぎゅうひきにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_beef",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "250-450円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "麻婆豆腐（牛肉版）、肉酱面",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_008",
+      "name_zh": "牛腩",
+      "name_ja": "牛バラ肉 / すね肉",
+      "name_kana": "ぎゅうバラ / すねにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_beef",
+      "purchase_location_ids": [
+        "loc_gyomu",
+        "loc_chinese",
+        "loc_costco"
+      ],
+      "price_range": "300-600円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "番茄牛腩、萝卜炖牛腩、土豆烧牛肉。すね肉（牛腱）适合炖煮",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common"
+      ]
+    },
+    {
+      "id": "meat_009",
+      "name_zh": "鸡腿肉",
+      "name_ja": "鶏もも肉",
+      "name_kana": "とりももにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_chicken",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "100-200円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "宫保鸡丁、辣子鸡、三杯鸡、黄焖鸡。日本鸡腿便宜，去骨方便",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "meat_010",
+      "name_zh": "鸡胸肉",
+      "name_ja": "鶏むね肉",
+      "name_kana": "とりむねにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_chicken",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "60-150円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "口水鸡、棒棒鸡、鸡丝凉面。日本超市最便宜的肉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_011",
+      "name_zh": "鸡翅",
+      "name_ja": "手羽先 / 手羽元",
+      "name_kana": "てばさき / てばもと",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_chicken",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "可乐鸡翅、奥尔良烤翅、卤翅。手羽先是翅尖中段，手羽元是翅根",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_012",
+      "name_zh": "鸡肉末",
+      "name_ja": "鶏ひき肉",
+      "name_kana": "とりひきにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_chicken",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "鸡肉饭、馄饨馅、丸子",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "meat_013",
+      "name_zh": "羊肉片",
+      "name_ja": "ラム肉 / 羊肉",
+      "name_kana": "ラムにく / ようにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_lamb",
+      "purchase_location_ids": [
+        "loc_gyomu",
+        "loc_costco",
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/100g",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "孜然羊肉、葱爆羊肉、涮羊肉。普通超市少见，业务超市冷冻ラム便宜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "meat_014",
+      "name_zh": "中式腊肠/腊肉",
+      "name_ja": "中華腸詰 / 腊肉",
+      "name_kana": "ちゅうかちょうづめ",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_processed_meat",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "800-1500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "腊味煲仔饭、腊肠炒蒜苗、广东米粉。中华店冷藏区",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "seafood_001",
+      "name_zh": "鲜虾",
+      "name_ja": "海老 / エビ",
+      "name_kana": "えび",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_crustacean",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "300-800円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "冷冻虾仁"
+      ],
+      "notes": "油焖大虾、椒盐虾、虾仁炒蛋。バナメイエビ便宜，ブラックタイガー大只",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seafood_002",
+      "name_zh": "蛤蜊",
+      "name_ja": "あさり",
+      "name_kana": "あさり",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_shellfish",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-500円/盒",
+      "season": [
+        "3月",
+        "4月",
+        "5月"
+      ],
+      "substitutes": [],
+      "notes": "蛤蜊蒸蛋、辣炒蛤蜊、蛤蜊豆腐汤",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "seafood_003",
+      "name_zh": "鱿鱼",
+      "name_ja": "イカ",
+      "name_kana": "イカ",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_cephalopod",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-500円/只",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "葱爆鱿鱼、椒盐鱿鱼圈、爆炒鱿鱼。スルメイカ是日本最常见种类",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seafood_004",
+      "name_zh": "扇贝",
+      "name_ja": "帆立 / ホタテ",
+      "name_kana": "ほたて",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_shellfish",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_costco"
+      ],
+      "price_range": "500-1200円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "蒜蓉粉丝扇贝、XO酱扇贝。日本是产地，刺身级也可炒",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seafood_005",
+      "name_zh": "章鱼",
+      "name_ja": "タコ",
+      "name_kana": "タコ",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_cephalopod",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "500-1000円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌章鱼、章鱼烧粉丝。日本超市熟章鱼足常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seafood_006",
+      "name_zh": "三文鱼",
+      "name_ja": "サーモン / 鮭",
+      "name_kana": "サーモン / さけ",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_fish",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "300-800円/块",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "可做香煎、糖醋、蒸鱼。中餐用挪威三文鱼或国产鲑鱼皆可",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seafood_007",
+      "name_zh": "青花鱼/鲭鱼",
+      "name_ja": "鯖 / サバ",
+      "name_kana": "さば",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_fish",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/条",
+      "season": [
+        "9月",
+        "10月",
+        "11月",
+        "12月"
+      ],
+      "substitutes": [],
+      "notes": "红烧鲭鱼、糖醋鲭鱼。日本秋鲭最肥",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "seafood_008",
+      "name_zh": "鳕鱼",
+      "name_ja": "鱈 / タラ",
+      "name_kana": "たら",
+      "category_id": "cat_seafood",
+      "subcategory_id": "subcat_fish",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/块",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "酸菜鱼、水煮鱼、糖醋鳕鱼。鳕鱼肉嫩适合做家常菜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "egg_001",
+      "name_zh": "鸡蛋",
+      "name_ja": "卵 / 鶏卵",
+      "name_kana": "たまご",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_egg",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "200-400円/10个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "西红柿炒蛋、韭菜炒蛋、蛋花汤。日本鸡蛋可生食，新鲜度高",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "egg_002",
+      "name_zh": "鹌鹑蛋",
+      "name_ja": "うずらの卵",
+      "name_kana": "うずらのたまご",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_egg",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "卤鹌鹑蛋、糖醋鹌鹑蛋。水煮罐头也常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "egg_003",
+      "name_zh": "皮蛋",
+      "name_ja": "ピータン / 皮蛋",
+      "name_kana": "ピータン",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_egg",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/4-6个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "皮蛋豆腐、皮蛋瘦肉粥、凉拌皮蛋。中华店必备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "egg_004",
+      "name_zh": "咸鸭蛋",
+      "name_ja": "塩漬けあひる卵 / 咸鸭蛋",
+      "name_kana": "しおづけあひるたまご",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_egg",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-700円/4-6个",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "咸蛋黄南瓜、咸蛋黄豆腐、配粥。中华店常有真空包装",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "tofu_001",
+      "name_zh": "老豆腐",
+      "name_ja": "木綿豆腐",
+      "name_kana": "もめんとうふ",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_tofu",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "60-150円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "麻婆豆腐、家常豆腐。日本木綿稍软于国内老豆腐，可压水后用",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "tofu_002",
+      "name_zh": "嫩豆腐",
+      "name_ja": "絹豆腐 / 絹ごし豆腐",
+      "name_kana": "きぬとうふ",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_tofu",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "60-150円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "皮蛋豆腐、豆腐羹、蟹黄豆腐。日本绢豆腐最嫩",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "tofu_003",
+      "name_zh": "油豆腐/炸豆腐",
+      "name_ja": "厚揚げ / 油揚げ",
+      "name_kana": "あつあげ / あぶらあげ",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_tofu",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "80-200円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "厚揚げ做炒菜，油揚げ做包饭/汤。中式回锅油豆腐、油豆腐烧肉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "tofu_004",
+      "name_zh": "豆腐干/香干",
+      "name_ja": "豆腐干 / トウフカン",
+      "name_kana": "とうふかん",
+      "category_id": "cat_egg_tofu",
+      "subcategory_id": "subcat_tofu",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "200-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "香干炒肉丝、芹菜香干、凉拌豆干丝。日式没有，中华店必买",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "fruit_001",
+      "name_zh": "苹果",
+      "name_ja": "りんご",
+      "name_kana": "りんご",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "100-300円/个",
+      "season": [
+        "10月",
+        "11月",
+        "12月",
+        "1月"
+      ],
+      "substitutes": [],
+      "notes": "拔丝苹果、苹果沙拉、煮粥。日本苹果脆甜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "fruit_002",
+      "name_zh": "香蕉",
+      "name_ja": "バナナ",
+      "name_kana": "バナナ",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "100-300円/串",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "拔丝香蕉、香蕉饼。便宜稳定",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "fruit_003",
+      "name_zh": "橘子",
+      "name_ja": "みかん",
+      "name_kana": "みかん",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "500-1500円/袋",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月"
+      ],
+      "substitutes": [],
+      "notes": "饭后水果、橘子皮做菜（陈皮）",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "fruit_004",
+      "name_zh": "草莓",
+      "name_ja": "いちご",
+      "name_kana": "いちご",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "400-800円/盒",
+      "season": [
+        "12月",
+        "1月",
+        "2月",
+        "3月",
+        "4月"
+      ],
+      "substitutes": [],
+      "notes": "甜品、果酱。日本草莓品种丰富，价高",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "fruit_005",
+      "name_zh": "梨",
+      "name_ja": "梨 / 和梨",
+      "name_kana": "なし",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "200-500円/个",
+      "season": [
+        "8月",
+        "9月",
+        "10月"
+      ],
+      "substitutes": [],
+      "notes": "冰糖炖梨、梨汁。日本和梨偏圆脆甜，秋月、二十世纪有名",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "fruit_006",
+      "name_zh": "桃子",
+      "name_ja": "桃 / もも",
+      "name_kana": "もも",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "300-800円/个",
+      "season": [
+        "6月",
+        "7月",
+        "8月"
+      ],
+      "substitutes": [],
+      "notes": "鲜食为主。日本白桃软甜多汁",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "fruit_007",
+      "name_zh": "西瓜",
+      "name_ja": "スイカ",
+      "name_kana": "スイカ",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "500-3000円/块或整个",
+      "season": [
+        "6月",
+        "7月",
+        "8月"
+      ],
+      "substitutes": [],
+      "notes": "解暑、西瓜皮可凉拌。日本西瓜偏小，价格高",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "fruit_008",
+      "name_zh": "哈密瓜",
+      "name_ja": "メロン",
+      "name_kana": "メロン",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_costco"
+      ],
+      "price_range": "500-3000円/个",
+      "season": [
+        "5月",
+        "6月",
+        "7月",
+        "8月"
+      ],
+      "substitutes": [],
+      "notes": "鲜食、配菜。日本マスクメロン贵，业务超市哈密瓜便宜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_seasonal"
+      ]
+    },
+    {
+      "id": "staple_001",
+      "name_zh": "日本米",
+      "name_ja": "米 / お米",
+      "name_kana": "こめ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_rice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "2000-4000円/5kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "日常米饭。Q弹有黏性，适合做盖饭。粒粒分明的炒饭可用中华店东北米",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_002",
+      "name_zh": "东北大米",
+      "name_ja": "中国産米 / 東北米",
+      "name_kana": "ちゅうごくさんまい",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_rice",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "3000-5000円/5kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "日本米"
+      ],
+      "notes": "炒饭、家常米饭。粒粒分明，更接近国内口味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "staple_003",
+      "name_zh": "糯米",
+      "name_ja": "もち米",
+      "name_kana": "もちごめ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_rice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "500-1000円/kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "粽子、八宝饭、糯米鸡。日本もち米与国内糯米差异小",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_004",
+      "name_zh": "中筋面粉",
+      "name_ja": "中力粉",
+      "name_kana": "ちゅうりきこ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_flour",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "薄力粉+強力粉"
+      ],
+      "notes": "饺子、面条、馒头。日本中力粉相对少见，可用薄力+強力混合替代",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_005",
+      "name_zh": "高筋面粉",
+      "name_ja": "強力粉",
+      "name_kana": "きょうりきこ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_flour",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "面包、刀削面、手擀面。需要嚼劲的面食",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_006",
+      "name_zh": "土豆淀粉",
+      "name_ja": "片栗粉",
+      "name_kana": "かたくりこ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_starch",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "150-300円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "コーンスターチ"
+      ],
+      "notes": "腌肉上浆、勾芡。日本片栗粉就是马铃薯淀粉，中餐常用",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_007",
+      "name_zh": "玉米淀粉",
+      "name_ja": "コーンスターチ",
+      "name_kana": "コーンスターチ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_starch",
+      "purchase_location_ids": [
+        "loc_supermarket"
+      ],
+      "price_range": "150-300円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "片栗粉"
+      ],
+      "notes": "勾芡、炸物挂糊。比片栗粉更细腻，适合做西式糊",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_008",
+      "name_zh": "红薯淀粉",
+      "name_ja": "さつまいもデンプン / 紅芋粉",
+      "name_kana": "さつまいもでんぷん",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_starch",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "片栗粉"
+      ],
+      "notes": "做酥肉、糖醋里脊更脆。日本超市没有，中华店常备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "staple_009",
+      "name_zh": "中华面/拉面",
+      "name_ja": "中華麺 / ラーメン",
+      "name_kana": "ちゅうかめん / ラーメン",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_noodle",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-300円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炸酱面、打卤面、凉面。日本超市生中華麺常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_010",
+      "name_zh": "饺子皮",
+      "name_ja": "餃子の皮",
+      "name_kana": "ぎょうざのかわ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_wrapper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "100-200円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "日本饺子皮偏薄小适合煎饺；中华店有水饺用厚皮（大判）",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_011",
+      "name_zh": "馄饨皮",
+      "name_ja": "ワンタンの皮",
+      "name_kana": "ワンタンのかわ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_wrapper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-200円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "鲜虾馄饨、抄手、红油抄手",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_012",
+      "name_zh": "春卷皮",
+      "name_ja": "春巻きの皮",
+      "name_kana": "はるまきのかわ",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_wrapper",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炸春卷。日本春卷皮厚于国内，可二层叠卷",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_001",
+      "name_zh": "酱油（生抽）",
+      "name_ja": "醤油 / 濃口醤油",
+      "name_kana": "しょうゆ / こいくちしょうゆ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_soy_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-500円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "日本浓口酱油偏甜，做中餐可代替生抽，但建议加少量盐或老抽",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_002",
+      "name_zh": "老抽",
+      "name_ja": "老抽 / 中国醤油",
+      "name_kana": "ラオチョウ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_soy_sauce",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "たまり醤油"
+      ],
+      "notes": "上色用，红烧菜必备。日本超市没有，たまり醤油可应急（偏咸）",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_003",
+      "name_zh": "蚝油",
+      "name_ja": "オイスターソース",
+      "name_kana": "オイスターソース",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炒青菜、腌肉、提鲜。李锦记最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "seasoning_004",
+      "name_zh": "米醋",
+      "name_ja": "米酢 / 穀物酢",
+      "name_kana": "よねず / こくもつす",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_vinegar",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、糖醋菜。日本米醋酸度温和，可应急代替镇江醋",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_005",
+      "name_zh": "镇江香醋/陈醋",
+      "name_ja": "鎮江香醋 / 中国黒酢",
+      "name_kana": "ちんこうこうす",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_vinegar",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "米酢+少糖"
+      ],
+      "notes": "醋溜菜、糖醋排骨、蘸饺子。中华店必买",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_006",
+      "name_zh": "料酒/绍兴酒",
+      "name_ja": "紹興酒 / 老酒",
+      "name_kana": "しょうこうしゅ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_cooking_wine",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu",
+        "loc_supermarket"
+      ],
+      "price_range": "400-1000円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "清酒"
+      ],
+      "notes": "腌肉、去腥、炒菜。中华店有专门的料酒；清酒（日本酒）可应急",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_007",
+      "name_zh": "味醂",
+      "name_ja": "本みりん / みりん",
+      "name_kana": "ほんみりん",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_cooking_wine",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "糖+清酒"
+      ],
+      "notes": "日式甜味料，做日中融合菜或部分红烧菜可代糖+酒",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_008",
+      "name_zh": "芝麻油/香油",
+      "name_ja": "ごま油 / 焙煎ごま油",
+      "name_kana": "ごまあぶら",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_oil",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、最后淋香。焙煎为深色香味重，太白为浅色无味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_009",
+      "name_zh": "食用油（菜籽油）",
+      "name_ja": "サラダ油 / キャノーラ油",
+      "name_kana": "サラダあぶら",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_oil",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "300-600円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "炒菜用油。日本サラダ油是菜籽油为主的调和油",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_010",
+      "name_zh": "辣椒油/红油",
+      "name_ja": "ラー油 / 食べるラー油",
+      "name_kana": "ラーゆ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_oil",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "300-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "红油抄手、凉拌。日式偏温和，中华店老干妈最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_011",
+      "name_zh": "猪油",
+      "name_ja": "ラード",
+      "name_kana": "ラード",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_oil",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "葱油拌面、菜饭、增香。也可自己买猪板油（豚脂）熬",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_012",
+      "name_zh": "花椒",
+      "name_ja": "花椒 / ホワジャオ",
+      "name_kana": "かしょう / ホワジャオ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "麻婆豆腐、水煮鱼、宫保鸡丁。日本超市极少，中华店或业务超市麻辣专区",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_013",
+      "name_zh": "八角",
+      "name_ja": "八角 / 大茴香",
+      "name_kana": "はっかく / だいういきょう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "红烧肉、卤味必备。スパイス区或中华店都有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_014",
+      "name_zh": "桂皮/肉桂",
+      "name_ja": "シナモンスティック / 桂皮",
+      "name_kana": "シナモン / けいひ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "卤味、炖肉。日本シナモン以斯里兰卡产为主，中华店有中式桂皮",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_015",
+      "name_zh": "香叶/月桂叶",
+      "name_ja": "ローリエ / 月桂葉",
+      "name_kana": "ローリエ / げっけいよう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "卤味、炖菜。普通超市スパイス区常备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_016",
+      "name_zh": "五香粉",
+      "name_ja": "五香粉",
+      "name_kana": "ウーシャンフェン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "腌肉、卤味、烤肉。中华店最全",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_017",
+      "name_zh": "十三香",
+      "name_ja": "十三香",
+      "name_kana": "シーサンシャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "五香粉"
+      ],
+      "notes": "饺子馅、肉饼、炖菜。中华店王守义品牌",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_018",
+      "name_zh": "白胡椒粉",
+      "name_ja": "白胡椒",
+      "name_kana": "しろこしょう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "汤、肉馅、凉拌。S&B最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_019",
+      "name_zh": "黑胡椒",
+      "name_ja": "黒胡椒 / ブラックペッパー",
+      "name_kana": "くろこしょう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-600円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "黑椒牛柳、煎肉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_020",
+      "name_zh": "一味唐辛子（辣椒粉）",
+      "name_ja": "一味唐辛子",
+      "name_kana": "いちみとうがらし",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "韩国辣椒粉"
+      ],
+      "notes": "可应急代替中式辣椒粉。要做辣椒油用韩国粗辣椒粉更香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_substitutable"
+      ]
+    },
+    {
+      "id": "seasoning_021",
+      "name_zh": "韩国辣椒粉",
+      "name_ja": "韓国唐辛子 / 粗挽き唐辛子",
+      "name_kana": "かんこくとうがらし",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_korean",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "做辣椒油、麻辣调料。粗细分两种，自制红油用粗的",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common"
+      ]
+    },
+    {
+      "id": "seasoning_022",
+      "name_zh": "豆瓣酱（日式）",
+      "name_ja": "豆板醤 / トウバンジャン",
+      "name_kana": "トウバンジャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-500円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "麻婆豆腐、回锅肉。日本李锦记/S&B/ユウキ食品的最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_023",
+      "name_zh": "郫县豆瓣酱",
+      "name_ja": "郫県豆板醤",
+      "name_kana": "ピーシェントウバンジャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "500-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "日式豆板醤"
+      ],
+      "notes": "正宗川菜必备。鹃城牌、丹丹牌。中华店冷藏区",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_024",
+      "name_zh": "甜面酱",
+      "name_ja": "甜麺醤 / テンメンジャン",
+      "name_kana": "テンメンジャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "京酱肉丝、烤鸭蘸酱、炸酱面。日本超市常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_025",
+      "name_zh": "海鲜酱",
+      "name_ja": "海鮮醤 / ホイシンソース",
+      "name_kana": "かいせんジャン / ホイシンソース",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "烤肉酱、烤鸭蘸酱。李锦记最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_026",
+      "name_zh": "芝麻酱",
+      "name_ja": "練りごま / 芝麻醤",
+      "name_kana": "ねりごま",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "花生酱"
+      ],
+      "notes": "麻酱凉面、火锅蘸料、麻酱拌茄子。日本練りごま偏液，中华店芝麻酱浓",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_027",
+      "name_zh": "XO酱",
+      "name_ja": "XO醤",
+      "name_kana": "エックスオージャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "600-1500円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "粤式XO酱炒饭、炒菜。日本S&B/李锦记常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_028",
+      "name_zh": "韩式辣酱",
+      "name_ja": "コチュジャン",
+      "name_kana": "コチュジャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_korean"
+      ],
+      "price_range": "300-600円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "做中韩融合菜或部分辣味菜可用。普通超市也有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_029",
+      "name_zh": "盐",
+      "name_ja": "塩",
+      "name_kana": "しお",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_basic_seasoning",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "100-300円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "做中餐选粗盐或精製塩。日本盐含碘可选岩盐",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_030",
+      "name_zh": "白砂糖",
+      "name_ja": "上白糖 / 砂糖",
+      "name_kana": "じょうはくとう / さとう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_basic_seasoning",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-400円/kg",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "日本上白糖偏湿润。做红烧菜可用三温糖更香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_031",
+      "name_zh": "冰糖",
+      "name_ja": "氷砂糖 / 中華氷糖",
+      "name_kana": "こおりざとう",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_basic_seasoning",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "300-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "白砂糖"
+      ],
+      "notes": "红烧肉炒糖色、银耳汤、糖醋。普通超市氷砂糖大颗粒",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_032",
+      "name_zh": "鸡精",
+      "name_ja": "鶏ガラスープの素 / 鶏粉",
+      "name_kana": "とりガラスープのもと",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_basic_seasoning",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "味精"
+      ],
+      "notes": "炒菜、汤底提鲜。日式鶏ガラ偏温和，中华店太太乐/家乐更接近国内味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_001",
+      "name_zh": "干香菇",
+      "name_ja": "干し椎茸",
+      "name_kana": "ほししいたけ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "400-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "鲜香菇"
+      ],
+      "notes": "炖汤、烧菜、做粽子馅。日本国产干香菇品质高",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_002",
+      "name_zh": "干木耳",
+      "name_ja": "乾燥きくらげ",
+      "name_kana": "かんそうきくらげ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_mushroom",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "300-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "木须肉、凉拌木耳、酸辣汤。普通超市也常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_003",
+      "name_zh": "干银耳",
+      "name_ja": "白きくらげ",
+      "name_kana": "しろきくらげ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_mushroom",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "银耳莲子汤、糖水。中华店常备",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_004",
+      "name_zh": "干黄花菜",
+      "name_ja": "金針菜 / 干し黄花菜",
+      "name_kana": "きんしんさい",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_vegetable",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "黄花菜炒木耳、小鸡炖蘑菇、汤。中华店必买",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_005",
+      "name_zh": "干腐竹",
+      "name_ja": "湯葉 / 干し腐竹",
+      "name_kana": "ゆば / かんそうふちく",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_soy",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌腐竹、腐竹烧肉。日本湯葉太薄，中华店干腐竹更对味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_006",
+      "name_zh": "粉丝（绿豆/春雨）",
+      "name_ja": "春雨",
+      "name_kana": "はるさめ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_noodle",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "150-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "蚂蚁上树、白菜炖粉丝。日本春雨多用绿豆，也有马铃薯淀粉版",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_007",
+      "name_zh": "红薯粉条",
+      "name_ja": "サツマイモ春雨 / 寛粉",
+      "name_kana": "サツマイモはるさめ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_noodle",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "300-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "猪肉炖粉条、酸辣粉。中华店东北粉条最对味",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_008",
+      "name_zh": "海带",
+      "name_ja": "昆布 / 切り昆布",
+      "name_kana": "こんぶ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_seafood",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "300-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "海带排骨汤、凉拌海带丝。日本昆布质量高，但偏厚",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_009",
+      "name_zh": "红枣",
+      "name_ja": "干しなつめ / 紅棗",
+      "name_kana": "ほしなつめ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_fruit",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_korean"
+      ],
+      "price_range": "400-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "红枣银耳汤、煲汤、补气。中华店和韩国超市都有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_010",
+      "name_zh": "枸杞",
+      "name_ja": "クコの実",
+      "name_kana": "クコのみ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_chinese"
+      ],
+      "price_range": "300-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "煲汤、泡水、糖水。普通超市スーパーフード区或中华店",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_045",
+      "name_zh": "西兰花",
+      "name_ja": "ブロッコリー",
+      "name_kana": "ブロッコリー",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_leafy",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "200-400円/颗",
+      "season": [
+        "11月",
+        "12月",
+        "1月",
+        "2月",
+        "3月"
+      ],
+      "substitutes": [],
+      "notes": "西兰花炒肉、白灼西兰花、奶油西兰花。日本ブロッコリー全年有售，冬季最甜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "veg_046",
+      "name_zh": "豆角/四季豆",
+      "name_ja": "さやいんげん / インゲン",
+      "name_kana": "さやいんげん / インゲン",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_sprout",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "6月",
+        "7月",
+        "8月",
+        "9月"
+      ],
+      "substitutes": [],
+      "notes": "排骨炖豆角、干煸豆角、四季豆炒肉。日本さやいんげん偏短，業務スーパー冷冻インゲン全年方便",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_033",
+      "name_zh": "孜然粉",
+      "name_ja": "クミン / クミンパウダー",
+      "name_kana": "クミン / クミンパウダー",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_donki",
+        "loc_chinese"
+      ],
+      "price_range": "200-500円/罐",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "孜然羊肉、烤肉、新疆菜。日本 S&B / GABAN 罐装常见，中华店有大包装",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_034",
+      "name_zh": "番茄酱",
+      "name_ja": "トマトケチャップ",
+      "name_kana": "トマトケチャップ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "200-400円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "西红柿炒蛋、西红柿炖牛肉补酸。日本ケチャップ偏甜，中餐用量略减",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_035",
+      "name_zh": "白芝麻",
+      "name_ja": "白ごま / 白胡麻",
+      "name_kana": "しろごま / しろごま",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_spice",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "200-400円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "撒在凉拌菜、糖醋菜、烤肉上提香。可买生白芝麻自己炒香更香",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_036",
+      "name_zh": "干酵母",
+      "name_ja": "ドライイースト",
+      "name_kana": "ドライイースト",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_basic_seasoning",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-500円/盒",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "包子、馒头、面包发酵用。日清/サフ最常见，小包装3g×8包方便",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "seasoning_037",
+      "name_zh": "老干妈（豆豉辣酱）",
+      "name_ja": "老干媽（豆豉辣油）",
+      "name_kana": "ラオガンマ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu",
+        "loc_donki"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "拌面、炒空心菜、配粥的万能酱。中华店和業務スーパー都常备，激安殿堂偶有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_versatile"
+      ]
+    },
+    {
+      "id": "seasoning_038",
+      "name_zh": "蒸鱼豉油",
+      "name_ja": "蒸し魚醤油",
+      "name_kana": "むしさかなじょうゆ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_soy_sauce",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "500-1000円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "seasoning_001"
+      ],
+      "notes": "清蒸鱼、蒜蓉扇贝、白灼菜淋汁专用。比酱油更鲜，李锦记最常见",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_039",
+      "name_zh": "豆豉",
+      "name_ja": "豆豉（トウチ）",
+      "name_kana": "トウチ",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_gyomu"
+      ],
+      "price_range": "400-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "豆豉鲮鱼油麦菜、豉汁排骨、麻婆豆腐提鲜。永川豆豉或阳江豆豉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_040",
+      "name_zh": "豆腐乳/腐乳",
+      "name_ja": "腐乳 / 豆腐よう",
+      "name_kana": "フールー",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "腐乳空心菜、腐乳烧肉、配粥。王致和最有名（白方/红方/麻辣）",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_011",
+      "name_zh": "花生米",
+      "name_ja": "ピーナッツ / 落花生",
+      "name_kana": "ピーナッツ / らっかせい",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese",
+        "loc_costco"
+      ],
+      "price_range": "300-800円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "宫保鸡丁、凉拌菜、自制油炸花生米下酒。日本买生花生在中华店或业务超市",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_012",
+      "name_zh": "紫菜",
+      "name_ja": "焼き海苔 / 板海苔",
+      "name_kana": "やきのり / いたのり",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_seafood",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu"
+      ],
+      "price_range": "200-500円/包",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "紫菜蛋花汤、撒饭团。日本焼き海苔可直接代替中式干紫菜（撕碎下汤）",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_013",
+      "name_zh": "干虾米/海米",
+      "name_ja": "干しエビ / 桜エビ",
+      "name_kana": "ほしエビ / さくらエビ",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_seafood",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "400-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "虾米冬瓜、蛋炒饭、馅料提鲜。日本桜エビ偏小颗粒，中华店海米更大更鲜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "fruit_009",
+      "name_zh": "菠萝/凤梨",
+      "name_ja": "パイナップル",
+      "name_kana": "パイナップル",
+      "category_id": "cat_fruit",
+      "subcategory_id": "subcat_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_costco"
+      ],
+      "price_range": "300-800円/个",
+      "season": [
+        "4月",
+        "5月",
+        "6月",
+        "7月"
+      ],
+      "substitutes": [],
+      "notes": "菠萝咕咾肉、菠萝牛肉、果汁。日本以菲律宾/台湾进口为主，全年有售",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "staple_013",
+      "name_zh": "河粉",
+      "name_ja": "ホーフェン / 河粉",
+      "name_kana": "ホーフェン",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_noodle",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "300-600円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "干炒牛河、汤河粉。中华店冷藏区或干粉区。日式宽きしめん可应急",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "staple_014",
+      "name_zh": "米粉/桂林米粉",
+      "name_ja": "ビーフン / 米粉",
+      "name_kana": "ビーフン",
+      "category_id": "cat_staple",
+      "subcategory_id": "subcat_noodle",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "200-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "桂林米粉、贵州米粉、酸辣粉。日本超市ビーフン是台式细米粉，中华店有粗米粉",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_047",
+      "name_zh": "榨菜",
+      "name_ja": "搾菜 / ザーサイ",
+      "name_kana": "ザーサイ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_pickled",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "200-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "凉拌、榨菜肉丝、配粥。乌江最常见，普通超市也有真空小包装",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_common",
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "veg_048",
+      "name_zh": "韭黄",
+      "name_ja": "黄ニラ",
+      "name_kana": "きニラ",
+      "category_id": "cat_vegetable",
+      "subcategory_id": "subcat_allium",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_supermarket"
+      ],
+      "price_range": "300-500円/把",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "veg_009"
+      ],
+      "notes": "比韭菜更清香，韭黄炒蛋、韭黄炒河粉。中华店稳定，普通超市偶有",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "meat_015",
+      "name_zh": "鸭肉",
+      "name_ja": "鴨肉 / あひる肉",
+      "name_kana": "かもにく / あひるにく",
+      "category_id": "cat_meat",
+      "subcategory_id": "subcat_duck",
+      "purchase_location_ids": [
+        "loc_chinese",
+        "loc_costco",
+        "loc_gyomu"
+      ],
+      "price_range": "500-1500円/块",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "啤酒鸭、酱鸭、烤鸭。中华店冷冻有整鸭/鸭腿，Costco有合鴨胸",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "dry_014",
+      "name_zh": "红豆/小豆",
+      "name_ja": "小豆 / あずき",
+      "name_kana": "あずき",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_fruit",
+      "purchase_location_ids": [
+        "loc_supermarket",
+        "loc_gyomu",
+        "loc_chinese"
+      ],
+      "price_range": "200-500円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "红豆汤、红豆沙、八宝粥。日本小豆品质高，北海道产最佳。需冷水泡4小时再煮",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_easy_buy"
+      ]
+    },
+    {
+      "id": "dry_015",
+      "name_zh": "莲子",
+      "name_ja": "蓮の実 / 蓮子",
+      "name_kana": "はすのみ / れんし",
+      "category_id": "cat_dry",
+      "subcategory_id": "subcat_dry_fruit",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "500-1000円/袋",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [],
+      "notes": "银耳莲子汤、莲子粥。中华店常备，去芯白莲子最常用",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    },
+    {
+      "id": "seasoning_041",
+      "name_zh": "黄豆酱/干黄酱",
+      "name_ja": "黄豆醤",
+      "name_kana": "こうずジャン",
+      "category_id": "cat_seasoning",
+      "subcategory_id": "subcat_sauce",
+      "purchase_location_ids": [
+        "loc_chinese"
+      ],
+      "price_range": "400-800円/瓶",
+      "season": [
+        "全年"
+      ],
+      "substitutes": [
+        "seasoning_024"
+      ],
+      "notes": "炸酱面正宗酱料，比甜面酱咸香。六必居最有名。可用甜面酱替代但味道偏甜",
+      "image_url": "",
+      "image_alt": "",
+      "tag_ids": [
+        "tag_needs_chinese_store"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "购买场所字典。ingredients.json 通过 purchase_location_ids 引用。",
+  "locations": [
+    {
+      "id": "loc_supermarket",
+      "name_zh": "普通超市",
+      "name_ja": "一般スーパー",
+      "name_kana": "いっぱんすーぱー",
+      "description": "日本常见连锁超市，食材最齐全易购",
+      "examples": [
+        "イオン",
+        "ライフ",
+        "西友",
+        "マルエツ",
+        "OK",
+        "サミット",
+        "ヨークマート"
+      ],
+      "price_level": "中等",
+      "notes": ""
+    },
+    {
+      "id": "loc_gyomu",
+      "name_zh": "业务超市",
+      "name_ja": "業務スーパー",
+      "name_kana": "ぎょうむすーぱー",
+      "description": "价格便宜量大，部分中式调料和冷冻肉类丰富",
+      "examples": [
+        "業務スーパー"
+      ],
+      "price_level": "便宜",
+      "notes": "冷冻肉、大包装调料、部分中式食材性价比高"
+    },
+    {
+      "id": "loc_donki",
+      "name_zh": "激安殿堂",
+      "name_ja": "ドン・キホーテ",
+      "name_kana": "どん・きほーて",
+      "description": "调料和零食较全，部分进口食材",
+      "examples": [
+        "ドン・キホーテ",
+        "MEGAドンキ"
+      ],
+      "price_level": "中等",
+      "notes": ""
+    },
+    {
+      "id": "loc_costco",
+      "name_zh": "Costco",
+      "name_ja": "コストコ",
+      "name_kana": "こすとこ",
+      "description": "大包装肉类、海鲜、调料",
+      "examples": [
+        "コストコ"
+      ],
+      "price_level": "中等",
+      "notes": "需要会员卡。大包装适合多人家庭"
+    },
+    {
+      "id": "loc_chinese",
+      "name_zh": "中华食材店",
+      "name_ja": "中華食材店",
+      "name_kana": "ちゅうかしょくざいてん",
+      "description": "中国超市，中式调料、干货、特殊食材最齐全",
+      "examples": [
+        "友诚",
+        "阳光城",
+        "知音",
+        "永祥",
+        "亜州超市",
+        "物産中心",
+        "華僑服務社"
+      ],
+      "price_level": "中等偏高",
+      "notes": "东京池袋/上野/西川口等地集中，部分地区有网店"
+    },
+    {
+      "id": "loc_korean",
+      "name_zh": "韩国超市",
+      "name_ja": "韓国食材店",
+      "name_kana": "かんこくしょくざいてん",
+      "description": "韩式食材为主，部分中式调料和食材重合（辣椒粉、粉条等）",
+      "examples": [
+        "ヤンヤン",
+        "大成商会",
+        "韓国広場"
+      ],
+      "price_level": "中等",
+      "notes": ""
+    },
+    {
+      "id": "loc_depachika",
+      "name_zh": "百货地下",
+      "name_ja": "デパ地下",
+      "name_kana": "でぱちか",
+      "description": "高品质肉类、海鲜，价格偏高",
+      "examples": [
+        "高島屋",
+        "伊勢丹",
+        "三越",
+        "東急百貨店"
+      ],
+      "price_level": "贵",
+      "notes": "做请客菜或讲究品质时选用"
+    },
+    {
+      "id": "loc_online",
+      "name_zh": "网购",
+      "name_ja": "ネット通販",
+      "name_kana": "ねっとつうはん",
+      "description": "电商平台，可买稀有食材",
+      "examples": [
+        "Amazon Japan",
+        "楽天市場",
+        "中華物産网店",
+        "華僑服務社オンライン"
+      ],
+      "price_level": "中等",
+      "notes": "稀有食材或重货物（米、油）配送方便"
+    }
+  ]
+}

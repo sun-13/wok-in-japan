@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-21",
+  "description": "食材标签字典。ingredients.json 通过 tag_ids 引用。color 字段为预留 UI 用。",
+  "tags": [
+    {
+      "id": "tag_common",
+      "name_zh": "常用",
+      "name_ja": "定番",
+      "name_kana": "ていばん",
+      "description": "高频使用的核心食材",
+      "color": "#E94B3C"
+    },
+    {
+      "id": "tag_easy_buy",
+      "name_zh": "易购",
+      "name_ja": "入手しやすい",
+      "name_kana": "にゅうしゅしやすい",
+      "description": "普通超市就能买到",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "tag_needs_chinese_store",
+      "name_zh": "需中华店",
+      "name_ja": "中華食材店必要",
+      "name_kana": "ちゅうかしょくざいてんひつよう",
+      "description": "主要在中华食材店或网购才能买到",
+      "color": "#FF9800"
+    },
+    {
+      "id": "tag_versatile",
+      "name_zh": "百搭",
+      "name_ja": "万能",
+      "name_kana": "ばんのう",
+      "description": "适用菜系广泛",
+      "color": "#9C27B0"
+    },
+    {
+      "id": "tag_seasonal",
+      "name_zh": "季节性",
+      "name_ja": "季節限定",
+      "name_kana": "きせつげんてい",
+      "description": "有明显时令性",
+      "color": "#2196F3"
+    },
+    {
+      "id": "tag_substitutable",
+      "name_zh": "可替代",
+      "name_ja": "代用可",
+      "name_kana": "だいようか",
+      "description": "找不到时有日式食材可替代",
+      "color": "#607D8B"
+    }
+  ]
+}
