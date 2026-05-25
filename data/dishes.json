@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-25",
   "description": "中餐菜单数据库。每道菜引用 ingredients.json 中的食材 ID，做法以步骤数组形式存储。",
   "metadata": {
     "references": {
@@ -7966,6 +7966,185 @@
         "滋补",
         "冷热皆宜",
         "传统"
+      ]
+    },
+    {
+      "id": "dish_052",
+      "name_zh": "葱烧豆腐",
+      "name_ja": "ねぎ焼き豆腐",
+      "name_kana": "ねぎやきどうふ",
+      "cuisine_id": "cuisine_lu",
+      "course_type_id": "course_main",
+      "cooking_method": "烧",
+      "difficulty": 2,
+      "cook_time_minutes": 25,
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient_id": "tofu_001",
+          "amount": "1盒（约300g）",
+          "preparation": "切1.5cm厚方块，撒少许盐压水10分钟",
+          "role": "main",
+          "optional": false,
+          "substitute_ingredient_ids": [
+            "tofu_003"
+          ],
+          "notes": "懒人版可直接买日本超市的厚揚げ（あつあげ）切块即用免煎；注意只能用厚揚げ，不能用油揚げ（あぶらあげ）——油揚げ是薄皮款，下锅会吸汁碎掉"
+        },
+        {
+          "ingredient_id": "veg_030",
+          "amount": "1-2根",
+          "preparation": "葱白切3cm斜段，葱绿切葱花分开",
+          "role": "main",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "葱是灵魂，量要足"
+        },
+        {
+          "ingredient_id": "veg_034",
+          "amount": "1小块",
+          "preparation": "切片",
+          "role": "aromatic",
+          "optional": true,
+          "substitute_ingredient_ids": [],
+          "notes": "提味用，量不宜多以免抢葱香"
+        },
+        {
+          "ingredient_id": "veg_033",
+          "amount": "2瓣",
+          "preparation": "切片",
+          "role": "aromatic",
+          "optional": true,
+          "substitute_ingredient_ids": [],
+          "notes": "传统做法可不放蒜"
+        },
+        {
+          "ingredient_id": "seasoning_001",
+          "amount": "1大勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": ""
+        },
+        {
+          "ingredient_id": "seasoning_002",
+          "amount": "1/2小勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "上色用，没有可用たまり醤油代替"
+        },
+        {
+          "ingredient_id": "seasoning_003",
+          "amount": "1大勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": ""
+        },
+        {
+          "ingredient_id": "seasoning_006",
+          "amount": "1大勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": ""
+        },
+        {
+          "ingredient_id": "seasoning_030",
+          "amount": "1小勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "提鲜用，不做甜口"
+        },
+        {
+          "ingredient_id": "seasoning_029",
+          "amount": "少许",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "尝味后再加，酱油已有咸度"
+        },
+        {
+          "ingredient_id": "staple_006",
+          "amount": "1小勺",
+          "preparation": "加2大勺水化开",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "勾芡用"
+        },
+        {
+          "ingredient_id": "seasoning_009",
+          "amount": "3大勺",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": false,
+          "substitute_ingredient_ids": [],
+          "notes": "煎豆腐和煸葱用"
+        },
+        {
+          "ingredient_id": "seasoning_008",
+          "amount": "几滴",
+          "preparation": "",
+          "role": "seasoning",
+          "optional": true,
+          "substitute_ingredient_ids": [],
+          "notes": "出锅前淋香"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "处理豆腐",
+          "description": "木綿豆腐切1.5cm厚方块，撒少许盐铺厨房纸压水10分钟（去水后煎不易碎）。如用厚揚げ（あつあげ，厚切炸豆腐）则切相同大小方块，淋开水冲去表面油，沥干，可跳过下一步。注意不要用油揚げ（あぶらあげ，薄皮炸豆腐），太薄会吸汁碎掉"
+        },
+        {
+          "order": 2,
+          "title": "煎豆腐",
+          "description": "锅烧热多放点油，木綿豆腐块下锅中小火两面各煎2-3分钟至金黄结皮，盛出备用（煎过的豆腐烧时不会散）"
+        },
+        {
+          "order": 3,
+          "title": "煸葱白",
+          "description": "锅留底油，转小火，下葱白段慢煸2-3分钟至边缘微焦出浓香（这一步是葱香关键，不能急火）。如用姜片蒜片同时下锅"
+        },
+        {
+          "order": 4,
+          "title": "调汁",
+          "description": "下生抽1大勺、老抽1/2小勺、蚝油1大勺、料酒1大勺、糖1小勺、清水150ml烧开"
+        },
+        {
+          "order": 5,
+          "title": "烧豆腐",
+          "description": "下煎好的豆腐块（或厚揚げ），轻轻摇锅使其平铺，小火烧4-5分钟入味，期间用锅铲背面轻推一两次避免粘底，尝味后按需补盐"
+        },
+        {
+          "order": 6,
+          "title": "勾芡收汁",
+          "description": "片栗粉水分2次淋入，每次大火烧开晃锅，让芡汁均匀裹住豆腐，至汤汁浓稠透亮"
+        },
+        {
+          "order": 7,
+          "title": "出锅",
+          "description": "撒葱绿葱花，淋几滴芝麻油，关火出锅"
+        }
+      ],
+      "tips": "豆腐选木綿（老豆腐）煎才不易碎，绢豆腐不行。懒人/赶时间直接用厚揚げ（あつあげ），日本超市常见100-200円一袋，切块就能下锅烧，省去压水煎的步骤但口感稍棉——注意只能用厚揚げ，不能用油揚げ（あぶらあげ，薄皮款），后者下锅会吸汁碎掉。大葱越多越好吃，少于1根味道不出，葱白慢煸出香是这道菜的命脉。糖只放1小勺提鲜，做成微甜会失去鲁菜葱烧本味。",
+      "image_url": "",
+      "image_alt": "",
+      "tags": [
+        "下饭",
+        "素菜",
+        "葱香",
+        "经典鲁菜"
       ]
     }
   ]
