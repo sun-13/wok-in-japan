@@ -93,7 +93,7 @@ export function IngredientsBrowser({ ingredients, categories }: IngredientsBrows
                 {g.items.map((ing) => (
                   <li key={ing.id}>
                     <Link
-                      href={`/ingredients/${ing.id}`}
+                      href={`/ingredients/${ing.slug}`}
                       className="border-border/60 bg-card hover:ring-primary/40 block rounded-lg border p-3 transition-all hover:ring-2"
                     >
                       <div className="text-sm leading-tight font-medium">{ing.name_zh}</div>

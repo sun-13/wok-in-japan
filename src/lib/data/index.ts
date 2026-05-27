@@ -6,6 +6,17 @@ import ingredientsJson from "../../../data/ingredients.json";
 import locationsJson from "../../../data/locations.json";
 import tagsJson from "../../../data/tags.json";
 
+import {
+  categoriesFileSchema,
+  courseTypesFileSchema,
+  cuisinesFileSchema,
+  dishesFileSchema,
+  ingredientsFileSchema,
+  locationsFileSchema,
+  tagsFileSchema,
+  validateReferentialIntegrity,
+} from "./schema";
+import { buildSlugMap } from "./slug";
 import type {
   Category,
   CourseType,
@@ -22,13 +33,25 @@ import type {
   Tag,
 } from "./types";
 
-const dishes = (dishesJson as { dishes: Dish[] }).dishes;
-const ingredients = (ingredientsJson as { ingredients: Ingredient[] }).ingredients;
-const cuisines = (cuisinesJson as { cuisines: Cuisine[] }).cuisines;
-const courseTypes = (courseTypesJson as { course_types: CourseType[] }).course_types;
-const categories = (categoriesJson as { categories: Category[] }).categories;
-const locations = (locationsJson as { locations: Location[] }).locations;
-const tags = (tagsJson as { tags: Tag[] }).tags;
+// モジュール読み込み時に Zod でパース → ID 重複 / 参照整合性チェック。
+// 失敗したらここで throw して dev/build を即落とす（CIで気付ける）。
+const dishes = dishesFileSchema.parse(dishesJson).dishes;
+const ingredients = ingredientsFileSchema.parse(ingredientsJson).ingredients;
+const cuisines = cuisinesFileSchema.parse(cuisinesJson).cuisines;
+const courseTypes = courseTypesFileSchema.parse(courseTypesJson).course_types;
+const categories = categoriesFileSchema.parse(categoriesJson).categories;
+const locations = locationsFileSchema.parse(locationsJson).locations;
+const tags = tagsFileSchema.parse(tagsJson).tags;
+
+validateReferentialIntegrity({
+  dishes,
+  ingredients,
+  cuisines,
+  courseTypes,
+  categories,
+  locations,
+  tags,
+});
 
 // ID 索引（モジュール読み込み時に一度だけ構築）
 const dishById = new Map(dishes.map((d) => [d.id, d]));
@@ -39,11 +62,24 @@ const categoryById = new Map(categories.map((c) => [c.id, c]));
 const locationById = new Map(locations.map((l) => [l.id, l]));
 const tagById = new Map(tags.map((t) => [t.id, t]));
 
+// name_zh → pinyin スラッグの双方向マップ。配列順なので安定。
+const dishSlugs = buildSlugMap(dishes);
+const ingredientSlugs = buildSlugMap(ingredients);
+
+function dishSlug(id: string): string {
+  return dishSlugs.idToSlug.get(id) ?? id;
+}
+
+function ingredientSlug(id: string): string {
+  return ingredientSlugs.idToSlug.get(id) ?? id;
+}
+
 function toSummary(dish: Dish): DishSummary {
   const cuisine = cuisineById.get(dish.cuisine_id);
   const course = courseTypeById.get(dish.course_type_id);
   return {
     id: dish.id,
+    slug: dishSlug(dish.id),
     name_zh: dish.name_zh,
     name_ja: dish.name_ja,
     name_kana: dish.name_kana,
@@ -81,12 +117,21 @@ export function getDish(id: string): Dish | null {
   return dishById.get(id) ?? null;
 }
 
+export function getDishBySlug(slug: string): Dish | null {
+  const id = dishSlugs.slugToId.get(slug);
+  return id ? (dishById.get(id) ?? null) : null;
+}
+
+export function getAllDishSlugs(): string[] {
+  return Array.from(dishSlugs.slugToId.keys());
+}
+
 export function getAllDishSummaries(): DishSummary[] {
   return dishes.map(toSummary);
 }
 
-export function getResolvedDish(id: string): ResolvedDish | null {
-  const dish = dishById.get(id);
+export function getResolvedDishBySlug(slug: string): ResolvedDish | null {
+  const dish = getDishBySlug(slug);
   if (!dish) return null;
 
   const resolved_ingredients: ResolvedDishIngredient[] = dish.ingredients.map((ref) => ({
@@ -99,6 +144,7 @@ export function getResolvedDish(id: string): ResolvedDish | null {
 
   return {
     ...dish,
+    slug: dishSlug(dish.id),
     cuisine: cuisineById.get(dish.cuisine_id) ?? null,
     course: courseTypeById.get(dish.course_type_id) ?? null,
     resolved_ingredients,
@@ -107,12 +153,24 @@ export function getResolvedDish(id: string): ResolvedDish | null {
 
 // 食材
 export function getAllIngredients(): Ingredient[] {
-
   return ingredients;
 }
 
 export function getIngredient(id: string): Ingredient | null {
   return ingredientById.get(id) ?? null;
+}
+
+export function getIngredientBySlug(slug: string): Ingredient | null {
+  const id = ingredientSlugs.slugToId.get(slug);
+  return id ? (ingredientById.get(id) ?? null) : null;
+}
+
+export function getAllIngredientSlugs(): string[] {
+  return Array.from(ingredientSlugs.slugToId.keys());
+}
+
+export function getIngredientSlug(id: string): string {
+  return ingredientSlug(id);
 }
 
 function findSubcategory(catId: string, subcatId: string): Subcategory | null {
@@ -126,6 +184,7 @@ function toIngredientSummary(ing: Ingredient): IngredientSummary {
   const subcat = findSubcategory(ing.category_id, ing.subcategory_id);
   return {
     id: ing.id,
+    slug: ingredientSlug(ing.id),
     name_zh: ing.name_zh,
     name_ja: ing.name_ja,
     name_kana: ing.name_kana,
@@ -146,11 +205,12 @@ export function getAllIngredientSummaries(): IngredientSummary[] {
   return ingredients.map(toIngredientSummary);
 }
 
-export function getResolvedIngredient(id: string): ResolvedIngredient | null {
-  const ing = ingredientById.get(id);
+export function getResolvedIngredientBySlug(slug: string): ResolvedIngredient | null {
+  const ing = getIngredientBySlug(slug);
   if (!ing) return null;
   return {
     ...ing,
+    slug: ingredientSlug(ing.id),
     category: categoryById.get(ing.category_id) ?? null,
     subcategory: findSubcategory(ing.category_id, ing.subcategory_id),
     purchase_locations: ing.purchase_location_ids
