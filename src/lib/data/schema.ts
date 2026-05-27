@@ -129,15 +129,14 @@ export function validateReferentialIntegrity(input: ValidationInput): void {
     return seen;
   }
 
-  const dishIds = checkUnique("dish", input.dishes);
+  // dish IDs: uniqueness only (no FK references dishes back, so we discard the set).
+  checkUnique("dish", input.dishes);
   const ingredientIds = checkUnique("ingredient", input.ingredients);
   const cuisineIds = checkUnique("cuisine", input.cuisines);
   const courseTypeIds = checkUnique("course_type", input.courseTypes);
   const categoryIds = checkUnique("category", input.categories);
   const locationIds = checkUnique("location", input.locations);
   const tagIds = checkUnique("tag", input.tags);
-  // 未使用警告を黙らせるため明示参照
-  void dishIds;
 
   // subcategory IDs are scoped per category. We track them per-category so that
   // ingredient.subcategory_id can be validated against ingredient.category_id
