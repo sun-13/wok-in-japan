@@ -93,6 +93,7 @@ export interface Dish extends Localized {
 // 一覧 / 絞り込み用の軽量な料理ビュー（関連フィールドは展開済み）
 export interface DishSummary extends Localized {
   id: string;
+  slug: string;
   cuisine: Pick<Cuisine, "id" | "name_zh" | "name_ja">;
   course: Pick<CourseType, "id" | "name_zh" | "name_ja" | "icon_hint">;
   cooking_method: string;
@@ -111,6 +112,7 @@ export interface ResolvedDishIngredient {
 }
 
 export interface ResolvedDish extends Dish {
+  slug: string;
   cuisine: Cuisine | null;
   course: CourseType | null;
   resolved_ingredients: ResolvedDishIngredient[];
@@ -119,6 +121,7 @@ export interface ResolvedDish extends Dish {
 // 食材一覧 / 絞り込み用の軽量ビュー
 export interface IngredientSummary extends Localized {
   id: string;
+  slug: string;
   category: Pick<Category, "id" | "name_zh" | "name_ja">;
   subcategory: Pick<Subcategory, "id" | "name_zh" | "name_ja"> | null;
   price_range: string;
@@ -129,6 +132,7 @@ export interface IngredientSummary extends Localized {
 
 // 食材詳細ページ用
 export interface ResolvedIngredient extends Ingredient {
+  slug: string;
   category: Category | null;
   subcategory: Subcategory | null;
   purchase_locations: Location[];

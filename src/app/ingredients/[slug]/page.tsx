@@ -5,20 +5,24 @@ import { notFound } from "next/navigation";
 import { DishCard } from "@/components/dish-card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { getAllIngredients, getDishesUsingIngredient, getResolvedIngredient } from "@/lib/data";
+import {
+  getAllIngredientSlugs,
+  getDishesUsingIngredient,
+  getResolvedIngredientBySlug,
+} from "@/lib/data";
 import { t } from "@/lib/i18n";
 
 export function generateStaticParams() {
-  return getAllIngredients().map((i) => ({ id: i.id }));
+  return getAllIngredientSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const ing = getResolvedIngredient(id);
+  const { slug } = await params;
+  const ing = getResolvedIngredientBySlug(slug);
   if (!ing) return { title: t("common.not_found") };
   return { title: `${ing.name_zh} / ${ing.name_ja}` };
 }
@@ -26,12 +30,12 @@ export async function generateMetadata({
 export default async function IngredientDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
-  const ing = getResolvedIngredient(id);
+  const { slug } = await params;
+  const ing = getResolvedIngredientBySlug(slug);
   if (!ing) notFound();
-  const usedIn = getDishesUsingIngredient(id);
+  const usedIn = getDishesUsingIngredient(ing.id);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">

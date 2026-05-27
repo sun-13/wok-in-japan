@@ -4,21 +4,21 @@ import { notFound } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { getAllDishes, getResolvedDish } from "@/lib/data";
+import { getAllDishSlugs, getIngredientSlug, getResolvedDishBySlug } from "@/lib/data";
 import type { IngredientRole, ResolvedDishIngredient } from "@/lib/data/types";
 import { difficultyLabel, roleLabel, t } from "@/lib/i18n";
 
 export function generateStaticParams() {
-  return getAllDishes().map((d) => ({ id: d.id }));
+  return getAllDishSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const dish = getResolvedDish(id);
+  const { slug } = await params;
+  const dish = getResolvedDishBySlug(slug);
   if (!dish) return { title: t("common.not_found") };
   return {
     title: dish.name_zh,
@@ -26,9 +26,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function DishDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const dish = getResolvedDish(id);
+export default async function DishDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const dish = getResolvedDishBySlug(slug);
   if (!dish) notFound();
 
   // 食材を main / sub / aromatic / seasoning でグルーピング
@@ -189,7 +189,7 @@ function IngredientGroup({
                   {ing ? (
                     <>
                       <Link
-                        href={`/ingredients/${ing.id}`}
+                        href={`/ingredients/${getIngredientSlug(ing.id)}`}
                         className="font-medium underline-offset-2 hover:underline"
                       >
                         {ing.name_zh}
@@ -218,7 +218,7 @@ function IngredientGroup({
                       <span key={s.id}>
                         {i > 0 ? " · " : ""}
                         <Link
-                          href={`/ingredients/${s.id}`}
+                          href={`/ingredients/${getIngredientSlug(s.id)}`}
                           className="underline-offset-2 hover:underline"
                         >
                           {s.name_zh}

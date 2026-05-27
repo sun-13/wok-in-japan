@@ -13,7 +13,7 @@ interface DishCardProps {
 export function DishCard({ dish }: DishCardProps) {
   return (
     <Link
-      href={`/dishes/${dish.id}`}
+      href={`/dishes/${dish.slug}`}
       className="group focus-visible:ring-ring block rounded-xl focus:outline-none focus-visible:ring-2"
     >
       <Card className="hover:ring-primary/40 h-full transition-all hover:-translate-y-0.5 hover:ring-2">
