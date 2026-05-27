@@ -139,16 +139,29 @@ export function validateReferentialIntegrity(input: ValidationInput): void {
   // 未使用警告を黙らせるため明示参照
   void dishIds;
 
-  // subcategory IDs are scoped per category, but we also check global uniqueness
-  // since `subcategory_id` on Ingredient is just a string.
-  const subcategoryIds = new Set<string>();
+  // subcategory IDs are scoped per category. We track them per-category so that
+  // ingredient.subcategory_id can be validated against ingredient.category_id
+  // (not just "exists somewhere"). We also flag duplicates across categories
+  // since the data treats subcategory_id as a free string.
+  const subcategoriesByCategory = new Map<string, Set<string>>();
+  const subcategoryOwner = new Map<string, string>();
   for (const cat of input.categories) {
     const local = new Set<string>();
     for (const sub of cat.subcategories) {
-      if (local.has(sub.id)) errors.push(`Duplicate subcategory "${sub.id}" within category "${cat.id}"`);
+      if (local.has(sub.id)) {
+        errors.push(`Duplicate subcategory "${sub.id}" within category "${cat.id}"`);
+      }
       local.add(sub.id);
-      subcategoryIds.add(sub.id);
+      const firstOwner = subcategoryOwner.get(sub.id);
+      if (firstOwner !== undefined && firstOwner !== cat.id) {
+        errors.push(
+          `Duplicate subcategory "${sub.id}" across categories "${firstOwner}" and "${cat.id}"`,
+        );
+      } else if (firstOwner === undefined) {
+        subcategoryOwner.set(sub.id, cat.id);
+      }
     }
+    subcategoriesByCategory.set(cat.id, local);
   }
 
   function checkRef(
@@ -183,12 +196,12 @@ export function validateReferentialIntegrity(input: ValidationInput): void {
 
   for (const ing of input.ingredients) {
     checkRef(`ingredient "${ing.id}".category_id`, ing.category_id, categoryIds, "category");
-    checkRef(
-      `ingredient "${ing.id}".subcategory_id`,
-      ing.subcategory_id,
-      subcategoryIds,
-      "subcategory",
-    );
+    const catSubs = subcategoriesByCategory.get(ing.category_id);
+    if (!catSubs || !catSubs.has(ing.subcategory_id)) {
+      errors.push(
+        `ingredient "${ing.id}".subcategory_id "${ing.subcategory_id}" not found in category "${ing.category_id}"`,
+      );
+    }
     for (const [i, lid] of ing.purchase_location_ids.entries()) {
       checkRef(
         `ingredient "${ing.id}".purchase_location_ids[${i}]`,
