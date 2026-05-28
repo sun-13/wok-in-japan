@@ -12,11 +12,17 @@ const listeners = new Set<() => void>();
 
 function loadAppData(): Promise<DataModule> {
   if (!pending) {
-    pending = import("@/lib/data").then((mod) => {
-      cache = mod;
-      listeners.forEach((listener) => listener());
-      return mod;
-    });
+    pending = import("@/lib/data")
+      .then((mod) => {
+        cache = mod;
+        listeners.forEach((listener) => listener());
+        return mod;
+      })
+      .catch((err) => {
+        // オフライン / チャンク取得失敗などで落ちたら pending をリセットし、次回 open で再試行できるようにする。
+        pending = null;
+        throw err;
+      });
   }
   return pending;
 }
@@ -35,7 +41,8 @@ export function useAppData(): DataModule | null {
   );
 
   React.useEffect(() => {
-    if (!cache) void loadAppData();
+    // 失敗時は loadAppData が pending をリセット済み。ここで握りつぶしておけば次の open で再試行される。
+    if (!cache) loadAppData().catch(() => {});
   }, []);
 
   return data;

@@ -38,9 +38,17 @@ interface OverlayActions {
   openIngredient: (slug: string) => void;
   openDishes: () => void;
   openIngredients: () => void;
+  /** Dismiss the top overlay (steps back one level, e.g. ingredient → dish). */
   close: () => void;
+  /** Jump straight back to the landing state, clearing all stacked overlays. */
+  home: () => void;
   /** Shareable URL (query string) for an overlay, so `<a href>` works for cmd-click / new tab. */
   hrefFor: (overlay: Overlay) => string;
+}
+
+function readOverlayDepth(state: unknown): number {
+  const depth = (state as { overlayDepth?: unknown } | null)?.overlayDepth;
+  return typeof depth === "number" ? depth : 0;
 }
 
 const OverlayContext = React.createContext<OverlayActions | null>(null);
@@ -51,13 +59,15 @@ const OverlayContext = React.createContext<OverlayActions | null>(null);
  * landing page, and footer stay statically rendered.
  */
 export function OverlayProvider({ children }: { children: React.ReactNode }) {
-  // ページ本体より上に積んだオーバーレイの数。close() で history.back() するか
-  // （戻り先がある）replaceState でクエリだけ消すか（ディープリンク直 open）を判断する。
+  // ページ本体より上に積んだオーバーレイの数。history.state に保存し、popstate では行き先
+  // エントリの値を読み直す（差分ではなく絶対値）ので、戻る / 進む / リロードに正しく追従する。
+  // close() で history.back() するか、クエリだけ消すか（ディープリンク直 open）を判断する。
   const depthRef = React.useRef(0);
 
   React.useEffect(() => {
-    function onPopState() {
-      depthRef.current = Math.max(0, depthRef.current - 1);
+    depthRef.current = readOverlayDepth(window.history.state);
+    function onPopState(event: PopStateEvent) {
+      depthRef.current = readOverlayDepth(event.state);
     }
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
@@ -65,13 +75,24 @@ export function OverlayProvider({ children }: { children: React.ReactNode }) {
 
   const open = React.useCallback((next: Overlay) => {
     // history.pushState は Next.js Router と連携し、ページを再マウントせず URL だけ更新する。
-    window.history.pushState(null, "", queryFor(next));
-    depthRef.current += 1;
+    // 深さを state に載せておく（Next は内部キーを既存 state にマージするので消えない）。
+    const depth = depthRef.current + 1;
+    window.history.pushState({ overlayDepth: depth }, "", queryFor(next));
+    depthRef.current = depth;
   }, []);
 
   const close = React.useCallback(() => {
     if (depthRef.current > 0) {
       window.history.back();
+    } else {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
+
+  const home = React.useCallback(() => {
+    if (depthRef.current > 0) {
+      // 積み上がったオーバーレイをまとめて飛ばし、一気にランディングへ戻る。
+      window.history.go(-depthRef.current);
     } else {
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -84,9 +105,10 @@ export function OverlayProvider({ children }: { children: React.ReactNode }) {
       openDishes: () => open({ kind: "dishes" }),
       openIngredients: () => open({ kind: "ingredients" }),
       close,
+      home,
       hrefFor: queryFor,
     }),
-    [open, close],
+    [open, close, home],
   );
 
   return <OverlayContext.Provider value={value}>{children}</OverlayContext.Provider>;
