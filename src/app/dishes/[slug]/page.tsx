@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import {
+  DishIngredients,
+  type IngredientGroupData,
+  type IngredientRow,
+} from "@/components/dish-ingredients";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { getAllDishSlugs, getIngredientSlug, getResolvedDishBySlug } from "@/lib/data";
-import type { IngredientRole, ResolvedDishIngredient } from "@/lib/data/types";
-import { difficultyLabel, roleLabel, t } from "@/lib/i18n";
+import type { IngredientRole } from "@/lib/data/types";
+import { difficultyLabel, t } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getAllDishSlugs().map((slug) => ({ slug }));
@@ -31,17 +36,29 @@ export default async function DishDetailPage({ params }: { params: Promise<{ slu
   const dish = getResolvedDishBySlug(slug);
   if (!dish) notFound();
 
-  // 食材を main / sub / aromatic / seasoning でグルーピング
-  const grouped: Record<IngredientRole, ResolvedDishIngredient[]> = {
-    main: [],
-    sub: [],
-    aromatic: [],
-    seasoning: [],
-  };
-  for (const ri of dish.resolved_ingredients) {
-    grouped[ri.ref.role]?.push(ri);
-  }
+  // 食材を main / sub / aromatic / seasoning でグルーピングし、クライアント側へ渡せる形に整形する
   const roleOrder: IngredientRole[] = ["main", "sub", "aromatic", "seasoning"];
+  const ingredientGroups: IngredientGroupData[] = roleOrder
+    .map((role) => ({
+      role,
+      items: dish.resolved_ingredients
+        .filter((ri) => ri.ref.role === role)
+        .map((ri, idx): IngredientRow => ({
+          key: `${role}-${idx}`,
+          name: ri.ingredient?.name_zh ?? ri.ref.ingredient_id,
+          nameJa: ri.ingredient?.name_ja ?? "",
+          slug: ri.ingredient ? getIngredientSlug(ri.ingredient.id) : null,
+          amount: ri.ref.amount,
+          preparation: ri.ref.preparation,
+          notes: ri.ref.notes,
+          optional: ri.ref.optional,
+          substitutes: ri.substitutes.map((s) => ({
+            name: s.name_zh,
+            slug: getIngredientSlug(s.id),
+          })),
+        })),
+    }))
+    .filter((group) => group.items.length > 0);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
@@ -93,14 +110,7 @@ export default async function DishDetailPage({ params }: { params: Promise<{ slu
       <Separator />
 
       <section className="mt-8">
-        <h2 className="mb-4 text-xl font-semibold">{t("dish_detail.ingredients_title")}</h2>
-        <div className="space-y-5">
-          {roleOrder.map((role) =>
-            grouped[role].length > 0 ? (
-              <IngredientGroup key={role} role={role} items={grouped[role]} />
-            ) : null,
-          )}
-        </div>
+        <DishIngredients groups={ingredientGroups} />
       </section>
 
       <Separator className="mt-8" />
@@ -162,79 +172,6 @@ function Stat({ label, value }: { label: string; value: string }) {
     <div>
       <dt className="text-muted-foreground text-xs">{label}</dt>
       <dd className="font-medium">{value}</dd>
-    </div>
-  );
-}
-
-function IngredientGroup({
-  role,
-  items,
-}: {
-  role: "main" | "sub" | "aromatic" | "seasoning";
-  items: ResolvedDishIngredient[];
-}) {
-  return (
-    <div>
-      <h3 className="text-muted-foreground mb-2 text-xs tracking-wider uppercase">
-        {roleLabel(role)}
-      </h3>
-      <ul className="divide-border/60 border-border/60 divide-y overflow-hidden rounded-lg border">
-        {items.map((ri, idx) => {
-          const ing = ri.ingredient;
-          const fallbackName = ri.ref.ingredient_id;
-          return (
-            <li key={idx} className="flex items-start gap-3 p-3 text-sm">
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-baseline gap-2">
-                  {ing ? (
-                    <>
-                      <Link
-                        href={`/ingredients/${getIngredientSlug(ing.id)}`}
-                        className="font-medium underline-offset-2 hover:underline"
-                      >
-                        {ing.name_zh}
-                      </Link>
-                      <span className="text-muted-foreground text-xs">{ing.name_ja}</span>
-                    </>
-                  ) : (
-                    <span className="text-muted-foreground font-medium">{fallbackName}</span>
-                  )}
-                  {ri.ref.optional && (
-                    <Badge variant="outline" className="h-4 text-[10px] font-normal">
-                      {t("dish_detail.optional_tag")}
-                    </Badge>
-                  )}
-                </div>
-                {ri.ref.preparation && (
-                  <p className="text-muted-foreground mt-1 text-xs">{ri.ref.preparation}</p>
-                )}
-                {ri.ref.notes && (
-                  <p className="text-muted-foreground mt-0.5 text-xs italic">{ri.ref.notes}</p>
-                )}
-                {ri.substitutes.length > 0 && (
-                  <p className="text-muted-foreground mt-1 text-xs">
-                    {t("dish_detail.substitute_label")}：
-                    {ri.substitutes.map((s, i) => (
-                      <span key={s.id}>
-                        {i > 0 ? " · " : ""}
-                        <Link
-                          href={`/ingredients/${getIngredientSlug(s.id)}`}
-                          className="underline-offset-2 hover:underline"
-                        >
-                          {s.name_zh}
-                        </Link>
-                      </span>
-                    ))}
-                  </p>
-                )}
-              </div>
-              <div className="text-muted-foreground font-mono text-sm whitespace-nowrap">
-                {ri.ref.amount}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 }

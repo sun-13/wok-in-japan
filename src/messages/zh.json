@@ -69,7 +69,10 @@
     "ingredient": "食材",
     "amount": "用量",
     "preparation": "处理",
-    "no_tips": "无"
+    "no_tips": "无",
+    "view_label": "查看方式",
+    "view_shopping": "购物",
+    "view_cooking": "做菜"
   },
   "ingredient_detail": {
     "back": "← 返回食材",
