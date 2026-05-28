@@ -2,7 +2,7 @@
 
 import { LaptopIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
 import { t } from "@/lib/i18n";
@@ -16,12 +16,23 @@ function isMode(value: string | undefined): value is Mode {
   return value !== undefined && (MODES as readonly string[]).includes(value);
 }
 
+const subscribe = () => () => {};
+
+// SSR/hydration では false、ハイドレート後に true を返すので setState を使わず
+// マウント判定できる。サーバー HTML と初期描画が一致するので hydration mismatch も起きない。
+function useMounted() {
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
+}
+
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
   // next-themes は SSR では theme を返さないので、マウントするまでアイコンの確定を保留して
   // hydration mismatch を避ける（ボタン枠だけ先に確保しておく）
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const current: Mode = isMode(theme) ? theme : "system";
   const Icon = ICONS[current];
