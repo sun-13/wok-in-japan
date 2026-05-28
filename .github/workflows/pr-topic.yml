@@ -10,6 +10,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
   pull-requests: write
 
 jobs:
@@ -31,6 +32,17 @@ jobs:
 
       - name: Install git-pr-release
         run: gem install --no-document git-pr-release
+
+      # git-pr-release fails if it tries to apply a label that doesn't exist,
+      # so create it idempotently here rather than relying on manual setup.
+      - name: Ensure release-note label exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create "ignore-for-release-note" \
+            --color ededed \
+            --description "このPRは、リリースノートに含めません" \
+            --force
 
       - name: Create release pull request
         env:
