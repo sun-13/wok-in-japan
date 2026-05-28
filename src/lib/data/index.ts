@@ -105,6 +105,7 @@ function toSummary(dish: Dish): DishSummary {
     servings: dish.servings,
     tags: dish.tags,
     image_url: dish.image_url,
+    image_alt: dish.image_alt,
   };
 }
 
