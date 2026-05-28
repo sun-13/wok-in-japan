@@ -1,0 +1,4 @@
+[ignore-for-release-note]
+color = "ededed"
+name = "ignore-for-release-note"
+description = "このPRは、リリースノートに含めません"

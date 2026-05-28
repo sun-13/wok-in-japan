@@ -1,0 +1,57 @@
+name: PR Topic
+on:
+  push:
+    branches:
+      - topic/*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-topic:
+    runs-on: ubuntu-latest
+    env:
+      # リリース用のターゲットブランチ名 (production branch)
+      PRODUCTION_BRANCH: main
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: false
+
+      - name: Install git-pr-release
+        run: gem install --no-document git-pr-release
+
+      - name: Create release pull request
+        env:
+          GIT_PR_RELEASE_TOKEN: ${{ github.token }}
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: ${{ env.PRODUCTION_BRANCH }}
+          GIT_PR_RELEASE_BRANCH_STAGING: ${{ github.ref_name }}
+          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-topic.erb
+          GIT_PR_RELEASE_LABELS: ignore-for-release-note
+          TZ: Asia/Tokyo
+        run: |
+          sleep 3
+          git-pr-release --overwrite-description
+
+      - name: Update PR title
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          PR_TITLE="Release: ${BRANCH_NAME#topic/}"
+          PRS=$(gh pr list --head "$BRANCH_NAME" --base "$PRODUCTION_BRANCH" --json number -q ".[].number")
+          for PR in $PRS; do
+            gh pr edit "$PR" --title "$PR_TITLE"
+            echo "Updated PR #$PR title to '$PR_TITLE'"
+          done
