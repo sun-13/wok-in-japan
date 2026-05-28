@@ -33,16 +33,27 @@ jobs:
       - name: Install git-pr-release
         run: gem install --no-document git-pr-release
 
-      # git-pr-release fails if it tries to apply a label that doesn't exist,
-      # so create it idempotently here rather than relying on manual setup.
-      - name: Ensure release-note label exists
+      # Sync labels from .github/labels.toml (single source of truth) so
+      # git-pr-release never fails applying a label that doesn't exist yet.
+      - name: Sync labels from .github/labels.toml
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh label create "ignore-for-release-note" \
-            --color ededed \
-            --description "このPRは、リリースノートに含めません" \
-            --force
+          python3 - <<'PY'
+          import subprocess, tomllib
+          with open(".github/labels.toml", "rb") as f:
+              labels = tomllib.load(f)
+          for key, attrs in labels.items():
+              name = attrs.get("name", key)
+              print(f"Syncing label: {name}")
+              subprocess.run(
+                  ["gh", "label", "create", name,
+                   "--color", attrs.get("color", ""),
+                   "--description", attrs.get("description", ""),
+                   "--force"],
+                  check=True,
+              )
+          PY
 
       - name: Create release pull request
         env:
