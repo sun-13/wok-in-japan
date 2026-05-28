@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { DishCard } from "@/components/dish-card";
+import { usePersistentState } from "@/components/overlay/persistent-state";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import type { CourseType, Cuisine, Difficulty, DishSummary } from "@/lib/data/types";
 import { difficultyLabel, t } from "@/lib/i18n";
 
@@ -45,11 +45,12 @@ function timeBucketLabel(bucket: TimeBucket): string {
 }
 
 export function DishesBrowser({ dishes, cuisines, courseTypes }: DishesBrowserProps) {
-  const [query, setQuery] = useState("");
-  const [cuisineId, setCuisineId] = useState<AnyFilter>(ALL);
-  const [courseId, setCourseId] = useState<AnyFilter>(ALL);
-  const [difficulty, setDifficulty] = useState<AnyFilter>(ALL);
-  const [time, setTime] = useState<TimeBucket>("any");
+  // モーダルを閉じて開き直しても絞り込みが保たれるよう、状態はセッション永続ストアに退避する。
+  const [query, setQuery] = usePersistentState("dishes:query", "");
+  const [cuisineId, setCuisineId] = usePersistentState<AnyFilter>("dishes:cuisine", ALL);
+  const [courseId, setCourseId] = usePersistentState<AnyFilter>("dishes:course", ALL);
+  const [difficulty, setDifficulty] = usePersistentState<AnyFilter>("dishes:difficulty", ALL);
+  const [time, setTime] = usePersistentState<TimeBucket>("dishes:time", "any");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -78,94 +79,96 @@ export function DishesBrowser({ dishes, cuisines, courseTypes }: DishesBrowserPr
   }
 
   return (
-    <div className="space-y-6">
-      <Input
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder={t("dishes.search_placeholder")}
-        className="h-11 text-base"
-      />
+    <div>
+      <div className="bg-card/95 supports-[backdrop-filter]:bg-card/75 sticky top-0 z-10 space-y-4 border-b px-5 pt-5 pb-4 backdrop-blur sm:px-8">
+        <Input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t("dishes.search_placeholder")}
+          className="h-11 text-base"
+        />
 
-      <div className="space-y-4">
-        <FilterRow label={t("dishes.filter_course")}>
-          <Chip active={courseId === ALL} onClick={() => setCourseId(ALL)} icon="✱">
-            {t("dishes.filter_all")}
-          </Chip>
-          {courseTypes.map((c) => (
-            <Chip
-              key={c.id}
-              active={courseId === c.id}
-              onClick={() => setCourseId(c.id)}
-              icon={c.icon_hint}
-            >
-              {c.name_zh}
+        <div className="space-y-3">
+          <FilterRow label={t("dishes.filter_course")}>
+            <Chip active={courseId === ALL} onClick={() => setCourseId(ALL)} icon="✱">
+              {t("dishes.filter_all")}
             </Chip>
-          ))}
-        </FilterRow>
+            {courseTypes.map((c) => (
+              <Chip
+                key={c.id}
+                active={courseId === c.id}
+                onClick={() => setCourseId(c.id)}
+                icon={c.icon_hint}
+              >
+                {c.name_zh}
+              </Chip>
+            ))}
+          </FilterRow>
 
-        <FilterRow label={t("dishes.filter_cuisine")}>
-          <Chip active={cuisineId === ALL} onClick={() => setCuisineId(ALL)}>
-            {t("dishes.filter_all")}
-          </Chip>
-          {cuisines.map((c) => (
-            <Chip key={c.id} active={cuisineId === c.id} onClick={() => setCuisineId(c.id)}>
-              {c.name_zh}
+          <FilterRow label={t("dishes.filter_cuisine")}>
+            <Chip active={cuisineId === ALL} onClick={() => setCuisineId(ALL)}>
+              {t("dishes.filter_all")}
             </Chip>
-          ))}
-        </FilterRow>
+            {cuisines.map((c) => (
+              <Chip key={c.id} active={cuisineId === c.id} onClick={() => setCuisineId(c.id)}>
+                {c.name_zh}
+              </Chip>
+            ))}
+          </FilterRow>
 
-        <FilterRow label={t("dishes.filter_difficulty")}>
-          <Chip active={difficulty === ALL} onClick={() => setDifficulty(ALL)}>
-            {t("dishes.filter_all")}
-          </Chip>
-          {([1, 2, 3, 4, 5] as Difficulty[]).map((d) => (
-            <Chip
-              key={d}
-              active={difficulty === String(d)}
-              onClick={() => setDifficulty(String(d))}
-            >
-              {difficultyLabel(d)}
+          <FilterRow label={t("dishes.filter_difficulty")}>
+            <Chip active={difficulty === ALL} onClick={() => setDifficulty(ALL)}>
+              {t("dishes.filter_all")}
             </Chip>
-          ))}
-        </FilterRow>
+            {([1, 2, 3, 4, 5] as Difficulty[]).map((d) => (
+              <Chip
+                key={d}
+                active={difficulty === String(d)}
+                onClick={() => setDifficulty(String(d))}
+              >
+                {difficultyLabel(d)}
+              </Chip>
+            ))}
+          </FilterRow>
 
-        <FilterRow label={t("dishes.filter_time")}>
-          {TIME_BUCKETS.map((b) => (
-            <Chip key={b} active={time === b} onClick={() => setTime(b)}>
-              {timeBucketLabel(b)}
-            </Chip>
-          ))}
-        </FilterRow>
+          <FilterRow label={t("dishes.filter_time")}>
+            {TIME_BUCKETS.map((b) => (
+              <Chip key={b} active={time === b} onClick={() => setTime(b)}>
+                {timeBucketLabel(b)}
+              </Chip>
+            ))}
+          </FilterRow>
+        </div>
+
+        <div className="flex items-center justify-between text-sm">
+          <span className="text-muted-foreground">
+            {t("dishes.result_count", { count: filtered.length })}
+          </span>
+          {hasFilters && (
+            <Button variant="ghost" size="sm" onClick={clearAll}>
+              {t("dishes.clear_filters")}
+            </Button>
+          )}
+        </div>
       </div>
 
-      <Separator />
-
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground">
-          {t("dishes.result_count", { count: filtered.length })}
-        </span>
-        {hasFilters && (
-          <Button variant="ghost" size="sm" onClick={clearAll}>
-            {t("dishes.clear_filters")}
-          </Button>
+      <div className="px-5 py-6 sm:px-8">
+        {filtered.length === 0 ? (
+          <div className="border-border/60 bg-card/50 text-muted-foreground rounded-xl border border-dashed p-12 text-center text-sm">
+            <div className="mb-2 text-3xl" aria-hidden>
+              🤔
+            </div>
+            <p>{t("dishes.empty")}</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((d) => (
+              <DishCard key={d.id} dish={d} />
+            ))}
+          </div>
         )}
       </div>
-
-      {filtered.length === 0 ? (
-        <div className="border-border/60 bg-card/50 text-muted-foreground rounded-xl border border-dashed p-12 text-center text-sm">
-          <div className="mb-2 text-3xl" aria-hidden>
-            🤔
-          </div>
-          <p>{t("dishes.empty")}</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((d) => (
-            <DishCard key={d.id} dish={d} />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

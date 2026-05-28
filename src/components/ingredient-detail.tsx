@@ -1,53 +1,33 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+"use client";
 
+import { DetailFrame, DetailSkeleton } from "@/components/dish-detail";
 import { DishCard } from "@/components/dish-card";
+import { useAppData } from "@/components/overlay/app-data";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import {
-  getAllIngredientSlugs,
-  getDishesUsingIngredient,
-  getResolvedIngredientBySlug,
-} from "@/lib/data";
 import { t } from "@/lib/i18n";
 
-export function generateStaticParams() {
-  return getAllIngredientSlugs().map((slug) => ({ slug }));
-}
+export function IngredientDetail({ slug }: { slug: string }) {
+  const data = useAppData();
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const ing = getResolvedIngredientBySlug(slug);
-  if (!ing) return { title: t("common.not_found") };
-  return { title: `${ing.name_zh} / ${ing.name_ja}` };
-}
+  if (!data) return <DetailSkeleton />;
 
-export default async function IngredientDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const ing = getResolvedIngredientBySlug(slug);
-  if (!ing) notFound();
-  const usedIn = getDishesUsingIngredient(ing.id);
+  const ing = data.getResolvedIngredientBySlug(slug);
+  if (!ing) {
+    return (
+      <DetailFrame title={t("common.not_found")}>
+        <p className="text-muted-foreground text-sm">{t("common.not_found")}</p>
+      </DetailFrame>
+    );
+  }
+
+  const usedIn = data.getDishesUsingIngredient(ing.id);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-      <Link
-        href="/ingredients"
-        className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-      >
-        {t("ingredient_detail.back")}
-      </Link>
-
-      <header className="mt-4 mb-8">
-        <div className="mb-2 flex items-center gap-2">
+    <DetailFrame
+      title={ing.name_zh}
+      eyebrow={
+        <div className="flex flex-wrap items-center gap-2">
           {ing.category && (
             <Badge variant="secondary" className="font-normal">
               {ing.category.name_zh}
@@ -65,18 +45,17 @@ export default async function IngredientDetailPage({
             </Badge>
           ))}
         </div>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{ing.name_zh}</h1>
-        <p className="text-muted-foreground mt-1 text-sm">
+      }
+      subtitle={
+        <>
           {ing.name_ja}
           {ing.name_kana && ing.name_kana !== ing.name_ja ? (
             <span className="ml-2 opacity-70">{ing.name_kana}</span>
           ) : null}
-        </p>
-      </header>
-
-      <Separator />
-
-      <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-5 text-sm sm:grid-cols-2">
+        </>
+      }
+    >
+      <dl className="grid grid-cols-1 gap-x-8 gap-y-5 text-sm sm:grid-cols-2">
         {ing.price_range && (
           <Field label={t("ingredient_detail.price_range")}>{ing.price_range}</Field>
         )}
@@ -114,8 +93,8 @@ export default async function IngredientDetailPage({
 
       {usedIn.length > 0 && (
         <>
-          <Separator className="mt-8" />
-          <section className="mt-8">
+          <Separator className="my-8" />
+          <section>
             <h2 className="mb-4 text-xl font-semibold">
               {t("ingredient_detail.used_in")}{" "}
               <span className="text-muted-foreground text-sm font-normal">({usedIn.length})</span>
@@ -128,7 +107,7 @@ export default async function IngredientDetailPage({
           </section>
         </>
       )}
-    </div>
+    </DetailFrame>
   );
 }
 

@@ -1,6 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
+import Image from "next/image";
+
+import { useOverlay } from "@/components/overlay/overlay-provider";
 import type { DishSummary } from "@/lib/data/types";
 import { difficultyLabel, t } from "@/lib/i18n";
 
@@ -25,18 +27,23 @@ function hueFromId(id: string): number {
 export function CoverflowCard({ dish, index, isActive, onActivate }: CoverflowCardProps) {
   const hasImage = Boolean(dish.image_url);
   const hue = hueFromId(dish.id);
+  const { openDish, hrefFor } = useOverlay();
 
   return (
-    <Link
-      href={`/dishes/${dish.slug}`}
+    <a
+      href={hrefFor({ kind: "dish", slug: dish.slug })}
       aria-label={dish.name_zh}
       tabIndex={isActive ? 0 : -1}
       onClick={(e) => {
-        // アクティブなカードだけ詳細へ遷移。それ以外はカルーセルを動かすだけ。
+        // 非アクティブなカードはカルーセルを動かすだけ。アクティブなカードは詳細モーダルを開く。
         if (!isActive) {
           e.preventDefault();
           onActivate(index);
+          return;
         }
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        openDish(dish.slug);
       }}
       className={`group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl border bg-neutral-950 text-white transition-shadow duration-500 select-none ${
         isActive
@@ -132,7 +139,7 @@ export function CoverflowCard({ dish, index, isActive, onActivate }: CoverflowCa
           </span>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 

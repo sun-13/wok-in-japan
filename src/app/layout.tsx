@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/footer";
 import { SiteHeader } from "@/components/layout/header";
+import { OverlayProvider } from "@/components/overlay/overlay-provider";
+import { Overlays } from "@/components/overlay/overlays";
 import { ThemeProvider } from "@/components/theme-provider";
 import { t } from "@/lib/i18n";
 
@@ -44,9 +46,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <OverlayProvider>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            <Overlays />
+          </OverlayProvider>
         </ThemeProvider>
       </body>
     </html>

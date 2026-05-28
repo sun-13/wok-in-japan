@@ -1,7 +1,5 @@
-import Link from "next/link";
-
+import { BrowseAllButton } from "@/components/browse-all-button";
 import { DishCoverflow } from "@/components/dish-coverflow";
-import { buttonVariants } from "@/components/ui/button";
 import {
   getAllCourseTypes,
   getAllCuisines,
@@ -33,9 +31,7 @@ export default function HomePage() {
       <DishCoverflow dishes={dishes} courseTypes={courseTypes} />
 
       <div className="flex flex-col items-center gap-2 pt-4">
-        <Link href="/dishes" className={buttonVariants({ variant: "outline" })}>
-          {t("home.browse_all")} →
-        </Link>
+        <BrowseAllButton>{t("home.browse_all")} →</BrowseAllButton>
         <p className="text-muted-foreground text-xs">
           {t("home.stats", {
             dishes: dishes.length,
