@@ -102,14 +102,16 @@ function IngredientGroup({ group, cooking }: { group: IngredientGroupData; cooki
 }
 
 function IngredientItem({ item, cooking }: { item: IngredientRow; cooking: boolean }) {
-  // 「做菜」のときだけ、手順とかぶらない補足（下処理 / メモ / 代替）を右側に出す
+  // 「做菜」のときだけ、手順とかぶらない補足（日本語名 / 下処理 / メモ / 代替）を右側に出す
   const hasDetail =
-    cooking && Boolean(item.preparation || item.notes || item.substitutes.length > 0);
+    cooking &&
+    Boolean(item.nameJa || item.preparation || item.notes || item.substitutes.length > 0);
 
   return (
     <li className="p-3 sm:flex sm:gap-x-6">
       {/* 主情報：食材名と用量を縦に並べ、視線がそのまま下へ流れるようにする */}
-      <div className={cooking ? "sm:w-40 sm:shrink-0" : "min-w-0"}>
+      {/* 補足列があるときだけ幅を固定して右列の頭を揃える。無いときは全幅に広げる */}
+      <div className={hasDetail ? "sm:w-40 sm:shrink-0" : "min-w-0"}>
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
           {item.slug ? (
             <Link
