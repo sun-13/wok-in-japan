@@ -1,5 +1,6 @@
-import Link from "next/link";
+"use client";
 
+import { useOverlay } from "@/components/overlay/overlay-provider";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { DishSummary } from "@/lib/data/types";
@@ -9,11 +10,18 @@ interface DishCardProps {
   dish: DishSummary;
 }
 
-// 一覧 / グリッドで使う料理カード。詳細ページへのリンク。
+// 一覧 / グリッドで使う料理カード。クリックで詳細モーダルを開く（cmd / ctrl クリックは新規タブで深いリンク）。
 export function DishCard({ dish }: DishCardProps) {
+  const { openDish, hrefFor } = useOverlay();
+
   return (
-    <Link
-      href={`/dishes/${dish.slug}`}
+    <a
+      href={hrefFor({ kind: "dish", slug: dish.slug })}
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        openDish(dish.slug);
+      }}
       className="group focus-visible:ring-ring block rounded-xl focus:outline-none focus-visible:ring-2"
     >
       <Card className="hover:ring-primary/40 h-full transition-all hover:-translate-y-0.5 hover:ring-2">
@@ -48,6 +56,6 @@ export function DishCard({ dish }: DishCardProps) {
           </div>
         </CardContent>
       </Card>
-    </Link>
+    </a>
   );
 }

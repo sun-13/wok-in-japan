@@ -2,12 +2,37 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
-
+import { useOverlay } from "@/components/overlay/overlay-provider";
 import { Badge } from "@/components/ui/badge";
 import type { IngredientRole } from "@/lib/data/types";
 import { roleLabel, t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+
+// 食材名 / 代替品から食材モーダルを開くリンク。cmd / ctrl クリックは新規タブで深いリンク。
+function IngredientLink({
+  slug,
+  className,
+  children,
+}: {
+  slug: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const { openIngredient, hrefFor } = useOverlay();
+  return (
+    <a
+      href={hrefFor({ kind: "ingredient", slug })}
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        openIngredient(slug);
+      }}
+      className={className}
+    >
+      {children}
+    </a>
+  );
+}
 
 export interface IngredientRow {
   key: string;
@@ -114,12 +139,12 @@ function IngredientItem({ item, cooking }: { item: IngredientRow; cooking: boole
       <div className={hasDetail ? "sm:w-40 sm:shrink-0" : "min-w-0"}>
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
           {item.slug ? (
-            <Link
-              href={`/ingredients/${item.slug}`}
+            <IngredientLink
+              slug={item.slug}
               className="text-sm font-medium underline-offset-2 hover:underline"
             >
               {item.name}
-            </Link>
+            </IngredientLink>
           ) : (
             <span className="text-sm font-medium">{item.name}</span>
           )}
@@ -154,12 +179,9 @@ function IngredientItem({ item, cooking }: { item: IngredientRow; cooking: boole
               {item.substitutes.map((s, i) => (
                 <span key={s.slug}>
                   {i > 0 ? " · " : ""}
-                  <Link
-                    href={`/ingredients/${s.slug}`}
-                    className="underline-offset-2 hover:underline"
-                  >
+                  <IngredientLink slug={s.slug} className="underline-offset-2 hover:underline">
                     {s.name}
-                  </Link>
+                  </IngredientLink>
                 </span>
               ))}
             </p>
