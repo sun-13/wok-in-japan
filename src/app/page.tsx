@@ -1,7 +1,5 @@
-import Link from "next/link";
-
-import { RandomPicker } from "@/components/random-picker";
-import { buttonVariants } from "@/components/ui/button";
+import { BrowseAllButton } from "@/components/browse-all-button";
+import { DishCoverflow } from "@/components/dish-coverflow";
 import {
   getAllCourseTypes,
   getAllCuisines,
@@ -17,7 +15,7 @@ export default function HomePage() {
   const cuisines = getAllCuisines();
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-12 sm:px-6 sm:py-16">
+    <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-4 py-12 sm:px-6 sm:py-16">
       <div className="space-y-3 text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           <span aria-hidden className="mr-2 inline-block">
@@ -30,12 +28,10 @@ export default function HomePage() {
         </p>
       </div>
 
-      <RandomPicker dishes={dishes} courseTypes={courseTypes} />
+      <DishCoverflow dishes={dishes} courseTypes={courseTypes} />
 
       <div className="flex flex-col items-center gap-2 pt-4">
-        <Link href="/dishes" className={buttonVariants({ variant: "outline" })}>
-          {t("home.browse_all")} →
-        </Link>
+        <BrowseAllButton>{t("home.browse_all")} →</BrowseAllButton>
         <p className="text-muted-foreground text-xs">
           {t("home.stats", {
             dishes: dishes.length,

@@ -1,0 +1,11 @@
+Release <%= Time.now %>
+### 概要
+リリース用PR(自動生成)
+
+### マージ対象のPullRequest
+<% pull_requests.each do |pr| -%>
+- #<%=  pr.number %> <%= pr.mention %>
+<% end -%>
+
+### 動作サンプル
+<!-- [[LINK]] -->

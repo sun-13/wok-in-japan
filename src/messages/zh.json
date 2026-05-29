@@ -14,9 +14,14 @@
     "hero_title": "今天吃什么？",
     "hero_sub": "在日本，用真能买到的食材，做你会做的中餐。",
     "roll_button": "随机来一道",
-    "roll_again": "再来一道",
+    "shuffle": "洗牌",
     "filter_label": "限定餐型",
     "filter_all": "全部",
+    "view_recipe": "查看做法",
+    "coverflow_hint": "拖动浏览 · 点击卡片看做法",
+    "empty_course": "这个餐型还没有菜，换一个试试",
+    "prev": "上一道",
+    "next": "下一道",
     "browse_all": "查看全部菜单",
     "stats": "菜品 {dishes} 道 · 食材 {ingredients} 种 · 菜系 {cuisines} 种"
   },
@@ -69,7 +74,10 @@
     "ingredient": "食材",
     "amount": "用量",
     "preparation": "处理",
-    "no_tips": "无"
+    "no_tips": "无",
+    "view_label": "查看方式",
+    "view_shopping": "购物",
+    "view_cooking": "做菜"
   },
   "ingredient_detail": {
     "back": "← 返回食材",
@@ -93,7 +101,8 @@
   "common": {
     "loading": "加载中...",
     "not_found": "没找到",
-    "back_home": "回到首页"
+    "back_home": "回到首页",
+    "close": "关闭"
   },
   "theme": {
     "switch": "切换主题",

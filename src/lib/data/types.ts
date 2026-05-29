@@ -102,6 +102,7 @@ export interface DishSummary extends Localized {
   servings: number;
   tags: string[];
   image_url: string;
+  image_alt: string;
 }
 
 // 詳細ページ用の完全な料理ビュー（食材を完全なオブジェクトに解決済み）
