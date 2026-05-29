@@ -4,6 +4,7 @@ import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { XIcon } from "lucide-react";
 import * as React from "react";
 
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 function Dialog(props: React.ComponentProps<typeof DialogPrimitive.Root>) {
@@ -90,7 +91,7 @@ function DialogContent({
         {children}
         {showClose && (
           <DialogClose
-            aria-label="关闭"
+            aria-label={t("common.close")}
             className={cn(
               "ring-offset-background focus-visible:ring-ring text-muted-foreground hover:bg-muted hover:text-foreground absolute top-3 right-3 z-10 flex size-8 items-center justify-center rounded-full transition-colors focus-visible:ring-2 focus-visible:outline-none",
               closeClassName,

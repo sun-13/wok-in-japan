@@ -101,7 +101,8 @@
   "common": {
     "loading": "加载中...",
     "not_found": "没找到",
-    "back_home": "回到首页"
+    "back_home": "回到首页",
+    "close": "关闭"
   },
   "theme": {
     "switch": "切换主题",
